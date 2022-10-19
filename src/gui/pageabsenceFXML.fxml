@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="508.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PageabsenceFXMLController">
+   <children>
+      <Button fx:id="button_ajouterab" layoutX="66.0" layoutY="394.0" mnemonicParsing="false" onAction="#passer_pageajoutab" prefHeight="31.0" prefWidth="89.0" text="Ajouter" />
+      <Button fx:id="button_modifierab" layoutX="214.0" layoutY="394.0" mnemonicParsing="false" onAction="#passer_pagemodifab" prefHeight="31.0" prefWidth="89.0" text="Modifier" />
+      <Button fx:id="button_suppab" layoutX="381.0" layoutY="394.0" mnemonicParsing="false" onAction="#passer_pagesupprab" text="Supprimer" />
+      <TableView fx:id="treevab" layoutX="46.0" layoutY="20.0" prefHeight="322.0" prefWidth="597.0">
+        <columns>
+          <TableColumn fx:id="tf_nomab" prefWidth="75.0" text="nom" />
+          <TableColumn fx:id="tf_prenomab" prefWidth="75.0" text="prenom" />
+            <TableColumn fx:id="tf_dateab" prefWidth="135.0" text="date_absence" />
+            <TableColumn fx:id="tf_dureab" prefWidth="109.0" text="dure_absence" />
+            <TableColumn fx:id="tf_justtifab" prefWidth="103.0" text="justification" />
+        </columns>
+      </TableView>
+      <Button fx:id="exit_acuiab" layoutX="510.0" layoutY="394.0" mnemonicParsing="false" onAction="#exit_acuiab" prefHeight="31.0" prefWidth="89.0" text="Exit" />
+   </children>
+</AnchorPane>
