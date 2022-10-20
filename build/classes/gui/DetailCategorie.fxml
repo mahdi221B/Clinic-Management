@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DetailCategorieController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="5.0" layoutY="5.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Button layoutX="56.0" layoutY="318.0" mnemonicParsing="false" onAction="#AjouterC" prefHeight="31.0" prefWidth="77.0" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Ajouter" />
+            <Button layoutX="254.0" layoutY="318.0" mnemonicParsing="false" onAction="#ModifierC" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Modifier" />
+            <Button layoutX="437.0" layoutY="318.0" mnemonicParsing="false" onAction="#SupprimerC" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Supprimer" textFill="RED" />
+            <TableView fx:id="tvCategorie" layoutX="25.0" layoutY="35.0" prefHeight="265.0" prefWidth="555.0" stylesheets="@newCascadeStyleSheet.css">
+               <columns>
+                  <TableColumn fx:id="collText_C" prefWidth="173.0" text="Text_Categorie" />
+                  <TableColumn fx:id="collDate_C" prefWidth="203.0" text="Date_Creation_Categorie" />
+                  <TableColumn fx:id="collId_C" prefWidth="182.0" text="Id_Createur_Categorie" />
+               </columns>
+            </TableView>
+            <TextField fx:id="tfpasss" layoutX="577.0" layoutY="6.0" prefHeight="31.0" prefWidth="5.0" stylesheets="@newCascadeStyleSheet.css" />
+         </children>
+      </AnchorPane>
+      <Label fx:id="controleC" layoutX="599.0" layoutY="381.0" stylesheets="@newCascadeStyleSheet.css" text=" " />
+   </children>
+</AnchorPane>

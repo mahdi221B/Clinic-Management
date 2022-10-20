@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DetailCommentaireController">
+   <children>
+      <TableView fx:id="tvCommentaire" layoutX="41.0" layoutY="35.0" prefHeight="278.0" prefWidth="518.0" stylesheets="@newCascadeStyleSheet.css">
+        <columns>
+          <TableColumn fx:id="collText_Comm" prefWidth="176.0" text="Text_Commentaire" />
+          <TableColumn fx:id="collUser_Comm" prefWidth="173.0" text="User_Id_Commentaire" />
+            <TableColumn fx:id="collId_Comm" prefWidth="168.0" text="Id_Post_Commentaire" />
+        </columns>
+      </TableView>
+      <Button layoutX="109.0" layoutY="330.0" mnemonicParsing="false" onAction="#AjouterCom" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Ajouter" />
+      <Button layoutX="268.0" layoutY="330.0" mnemonicParsing="false" onAction="#ModifierComm" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Modifier" />
+      <Button layoutX="420.0" layoutY="330.0" mnemonicParsing="false" onAction="#SupprimerComm" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Supprimer" />
+      <Label fx:id="controlecomm" layoutX="551.0" layoutY="376.0" text=" " />
+   </children>
+</AnchorPane>

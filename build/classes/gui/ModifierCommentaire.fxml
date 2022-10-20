@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="397.0" prefWidth="486.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ModifierCommentaireController">
+   <children>
+      <Label layoutX="62.0" layoutY="130.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="Text_Commentaire" />
+      <Label layoutX="62.0" layoutY="190.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="User_Id_Commentaire" />
+      <Label layoutX="63.0" layoutY="245.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="Id_Post_Commentaire" />
+      <TextField fx:id="tfText_Comm" layoutX="227.0" layoutY="125.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" />
+      <TextField fx:id="tfUser_Comm" layoutX="227.0" layoutY="185.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" />
+      <TextField fx:id="tfId_Comm" layoutX="227.0" layoutY="240.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" />
+      <Button layoutX="227.0" layoutY="306.0" mnemonicParsing="false" onAction="#ModifierComm" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Modifier" />
+      <Button layoutX="337.0" layoutY="306.0" mnemonicParsing="false" onMouseClicked="#ExitComm" prefHeight="31.0" prefWidth="77.0" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Exit" />
+   </children>
+</AnchorPane>
