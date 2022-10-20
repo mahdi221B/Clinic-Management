@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="444.0" prefWidth="704.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DetaillearticlesController">
+   <children>
+      <TableView fx:id="tarticles" layoutX="18.0" layoutY="21.0" prefHeight="325.0" prefWidth="669.0">
+        <columns>
+          <TableColumn fx:id="nom" prefWidth="126.0" text="nom" />
+          <TableColumn fx:id="qte" prefWidth="88.0" text="qte" />
+            <TableColumn fx:id="description" minWidth="-1.0" prefWidth="120.0" text="description" />
+            <TableColumn fx:id="type" prefWidth="160.0" text="type" />
+            <TableColumn fx:id="a_qui_destiné" prefWidth="172.0" text="a_qui_destiné" />
+        </columns>
+      </TableView>
+      <Button layoutX="72.0" layoutY="379.0" mnemonicParsing="false" onAction="#Ajoutrarticle" text="ajouter" />
+      <Button layoutX="269.0" layoutY="379.0" mnemonicParsing="false" onAction="#updatearticles" text="modifier" />
+      <Button layoutX="456.0" layoutY="379.0" mnemonicParsing="false" onAction="#Supprimerarticle" text="supprimer" />
+   </children>
+</AnchorPane>

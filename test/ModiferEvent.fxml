@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="511.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ModiferEventController">
+   <children>
+      <TableView fx:id="TEvent" layoutX="10.0" layoutY="244.0" prefHeight="200.0" prefWidth="674.0">
+        <columns>
+          <TableColumn fx:id="CTitre" prefWidth="75.0" text="Titre" />
+          <TableColumn fx:id="CDesc" prefWidth="75.0" text="Description" />
+            <TableColumn fx:id="CLieu" prefWidth="75.0" text="lieu" />
+            <TableColumn fx:id="COrga" prefWidth="75.0" text="Organisateur" />
+            <TableColumn fx:id="CEmail" prefWidth="75.0" text="email" />
+            <TableColumn fx:id="CNum" prefWidth="75.0" text="Numero" />
+            <TableColumn fx:id="CMont" prefWidth="75.0" text="Montant" />
+            <TableColumn fx:id="CDeb" prefWidth="75.0" text="D debut" />
+            <TableColumn fx:id="CFin" prefWidth="75.0" text="D fin" />
+        </columns>
+      </TableView>
+      <Button fx:id="btn1" layoutX="309.0" layoutY="181.0" mnemonicParsing="false" onAction="#Modifier" text="Modifier" />
+      <Label fx:id="warning" layoutX="133.0" layoutY="43.0" prefHeight="17.0" prefWidth="413.0" textFill="RED" />
+      <Button layoutX="441.0" layoutY="181.0" mnemonicParsing="false" onAction="#Delete" text="Delete" />
+      <Button layoutX="176.0" layoutY="181.0" mnemonicParsing="false" onAction="#Ajouter" text="Ajouter" />
+      <Label layoutX="101.0" layoutY="45.0" text="Titre" />
+      <TextField fx:id="tfTitre" layoutX="205.0" layoutY="41.0" />
+   </children>
+</AnchorPane>
