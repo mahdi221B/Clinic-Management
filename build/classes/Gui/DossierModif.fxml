@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="666.0" prefWidth="911.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Gui.DossierModifController">
+   <children>
+      <Label layoutX="148.0" layoutY="99.0" text="Nom patient :" />
+      <Label layoutX="145.0" layoutY="167.0" text="Medicaments :" />
+      <Label layoutX="153.0" layoutY="347.0" text="Maladies :" />
+      <Label layoutX="151.0" layoutY="435.0" text="Allergies des medicaments :" />
+      <Label layoutX="157.0" layoutY="525.0" text="Details operations :" />
+      <Label layoutX="147.0" layoutY="263.0" text="Consultation :" />
+      <TextField fx:id="nomPatMdf" layoutX="386.0" layoutY="94.0" />
+      <TextField fx:id="medicmodif" layoutX="387.0" layoutY="156.0" prefHeight="64.0" prefWidth="300.0" />
+      <TextField fx:id="consmodif" layoutX="387.0" layoutY="241.0" prefHeight="64.0" prefWidth="300.0" />
+      <TextField fx:id="allergmodif" layoutX="387.0" layoutY="413.0" prefHeight="64.0" prefWidth="300.0" />
+      <TextField fx:id="maldmodif" layoutX="387.0" layoutY="325.0" prefHeight="64.0" prefWidth="300.0" />
+      <TextField fx:id="opertmdf" layoutX="386.0" layoutY="503.0" prefHeight="64.0" prefWidth="300.0" />
+      <Button layoutX="387.0" layoutY="597.0" mnemonicParsing="false" onAction="#Modifier_Dossier" text="Modifier" />
+      <Text layoutX="324.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dossier Patient">
+         <font>
+            <Font size="45.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

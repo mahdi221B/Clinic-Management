@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="749.0" prefWidth="1062.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.ConsultationAffichageController">
+   <children>
+      <TableView fx:id="tvConsult" layoutX="87.0" layoutY="136.0" prefHeight="395.0" prefWidth="836.0">
+        <columns>
+          <TableColumn fx:id="nmco" prefWidth="113.0" text="Nom medecin" />
+          <TableColumn fx:id="datca" prefWidth="134.0" text="Date consultation" />
+            <TableColumn fx:id="npatco" prefWidth="115.0" text="Nom patient" />
+            <TableColumn fx:id="lexcoa" prefWidth="114.0" text="Liste examens" />
+            <TableColumn fx:id="lmedicoa" prefWidth="184.0" text="Liste medicaments" />
+            <TableColumn fx:id="traitcoa" prefWidth="175.0" text="Traitement" />
+        </columns>
+      </TableView>
+      <Text layoutX="432.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Consultation">
+         <font>
+            <Font size="45.0" />
+         </font>
+      </Text>
+      <Label fx:id="warning" layoutX="452.0" layoutY="694.0" prefHeight="21.0" prefWidth="158.0" />
+      <Button layoutX="193.0" layoutY="599.0" mnemonicParsing="false" onAction="#ajouterC" text="Ajouter" />
+      <Button layoutX="452.0" layoutY="599.0" mnemonicParsing="false" onAction="#modifierC" text="Modifier" />
+      <Button layoutX="727.0" layoutY="599.0" mnemonicParsing="false" onAction="#supprimerC" text="Supprimer" />
+      <TextField fx:id="tfTitre" layoutX="293.0" layoutY="64.0" prefHeight="31.0" prefWidth="18.0" />
+   </children>
+</AnchorPane>

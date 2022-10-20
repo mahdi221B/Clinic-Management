@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="667.0" prefWidth="862.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Gui.DossierAffichageController">
+   <children>
+      <TableView fx:id="tvDosp" layoutX="65.0" layoutY="103.0" prefHeight="362.0" prefWidth="763.0">
+        <columns>
+          <TableColumn fx:id="npa" prefWidth="121.0" text="Nom patient" />
+          <TableColumn fx:id="mlda" prefWidth="91.0" text="Maladies" />
+            <TableColumn fx:id="medica" prefWidth="117.0" text="Medicaments" />
+            <TableColumn fx:id="allrga" prefWidth="171.0" text="Allergies medicaments" />
+            <TableColumn fx:id="cslta" prefWidth="109.0" text="Consultations" />
+            <TableColumn fx:id="oprta" prefWidth="151.0" text="Details operations" />
+        </columns>
+      </TableView>
+      <Text layoutX="282.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dossier Patient">
+         <font>
+            <Font size="45.0" />
+         </font>
+      </Text>
+      <Button layoutX="134.0" layoutY="525.0" mnemonicParsing="false" onAction="#ajouter" text="Ajouter" />
+      <Button layoutX="392.0" layoutY="525.0" mnemonicParsing="false" onAction="#modifier" text="Modifier" />
+      <Button layoutX="616.0" layoutY="525.0" mnemonicParsing="false" onAction="#supprimer" text="Supprimer" />
+      <Label fx:id="warning" layoutX="555.0" layoutY="594.0" prefHeight="21.0" prefWidth="105.0" />
+      <TextField fx:id="tfTitre" layoutX="217.0" layoutY="38.0" prefHeight="31.0" prefWidth="18.0" />
+   </children>
+</AnchorPane>

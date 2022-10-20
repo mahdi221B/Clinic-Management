@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="761.0" prefWidth="973.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.RendezVousajoutController">
+   <children>
+      <Label layoutX="124.0" layoutY="201.0" text="Date :" />
+      <Label layoutX="120.0" layoutY="264.0" text="Heure :" />
+      <Label layoutX="125.0" layoutY="143.0" text="Nom medecin :" />
+      <Label layoutX="118.0" layoutY="331.0" text="Nom patient :" />
+      <Label layoutX="121.0" layoutY="388.0" text="Cause :" />
+      <TextField fx:id="tfNomed" layoutX="441.0" layoutY="138.0" promptText="Dr" />
+      <TextField fx:id="tfDate" layoutX="441.0" layoutY="196.0" promptText="dd/mm/yyyy" />
+      <TextField fx:id="tfNompat" layoutX="441.0" layoutY="326.0" />
+      <TextArea fx:id="taCause" layoutX="441.0" layoutY="399.0" prefHeight="109.0" prefWidth="342.0" />
+      <TextField fx:id="tfHeure" layoutX="441.0" layoutY="259.0" promptText="hh:mm" />
+      <Button layoutX="441.0" layoutY="606.0" mnemonicParsing="false" onAction="#ajouterRDV" text="Ajouter" />
+      <Text layoutX="355.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rendez-vous">
+         <font>
+            <Font size="46.0" />
+         </font>
+      </Text>
+      <Label fx:id="warn" layoutX="644.0" layoutY="635.0" prefHeight="51.0" prefWidth="249.0" />
+   </children>
+</AnchorPane>

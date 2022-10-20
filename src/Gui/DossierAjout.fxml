@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.DossierAjoutController">
+   <children>
+      <Label layoutX="179.0" layoutY="133.0" text="Nom patient :" />
+      <Label layoutX="176.0" layoutY="229.0" text="Medicaments :" />
+      <Label layoutX="176.0" layoutY="311.0" text="Consultation :" />
+      <Label layoutX="179.0" layoutY="396.0" text="Maladies :" />
+      <Label layoutX="165.0" layoutY="471.0" text="Allergies des medicaments :" />
+      <Label layoutX="165.0" layoutY="565.0" prefHeight="21.0" prefWidth="149.0" text="Details operations :" />
+      <TextField fx:id="medicDos" layoutX="537.0" layoutY="207.0" prefHeight="64.0" prefWidth="313.0" />
+      <TextField fx:id="NPatDos" layoutX="537.0" layoutY="128.0" />
+      <TextField fx:id="ConsDos" layoutX="537.0" layoutY="289.0" prefHeight="64.0" prefWidth="313.0" />
+      <TextField fx:id="MalDos" layoutX="537.0" layoutY="374.0" prefHeight="64.0" prefWidth="313.0" />
+      <TextField fx:id="AlergDos" layoutX="537.0" layoutY="460.0" prefHeight="64.0" prefWidth="313.0" />
+      <TextField fx:id="OpertDos" layoutX="537.0" layoutY="543.0" prefHeight="64.0" prefWidth="313.0" />
+      <Button layoutX="527.0" layoutY="639.0" mnemonicParsing="false" onAction="#AjouterDossier" text="Ajouter" />
+      <Text layoutX="372.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dossier Patient">
+         <font>
+            <Font size="45.0" />
+         </font>
+      </Text>
+      <Label fx:id="warn" layoutX="652.0" layoutY="639.0" prefHeight="31.0" prefWidth="221.0" />
+   </children>
+</AnchorPane>
