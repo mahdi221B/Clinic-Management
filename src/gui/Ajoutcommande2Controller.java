@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -26,16 +27,12 @@ import services.commande_services;
  *
  * @author miled
  */
-public class AjoutcommandeController implements Initializable {
+public class Ajoutcommande2Controller implements Initializable {
 
     @FXML
-    private TextField status;
+    private TextField QteC;
     @FXML
     private DatePicker date_ajout;
-    @FXML
-    private DatePicker date_cloture;
-    @FXML
-    private TextField motif_cloture;
 
     /**
      * Initializes the controller class.
@@ -48,9 +45,8 @@ public class AjoutcommandeController implements Initializable {
     @FXML
     private void Ajoutercommande(ActionEvent event) throws IOException {
     
-        commande_services cs = new commande_services();
-        cs.Ajoutercommande(new commande(status.getText() , date_ajout.getValue().toString(), date_cloture.getValue().toString(), motif_cloture.getText() ));
-       // cs.Ajoutercommande2(Integer.parseInt(QteC.getText()));
+    commande_services cs = new commande_services();
+      cs.Ajoutercommande2(new commande(Integer.parseInt(QteC.getText())  ,date_ajout.getValue().toString() ));
         JOptionPane.showMessageDialog(null,"commande ajoutée");
                
       Parent root = FXMLLoader.load(getClass().getResource("../gui/detaillearticles.fxml")) ;
@@ -60,6 +56,6 @@ public class AjoutcommandeController implements Initializable {
 	window.setScene(rcScene);
 	window.show();
     }  
-                
     }
     
+

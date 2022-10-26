@@ -4,7 +4,7 @@
  */
 package gui;
 
-import entites.commande;
+import entites.articles;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,27 +15,21 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
-import services.commande_services;
+import services.articels_services;
 
 /**
  * FXML Controller class
  *
  * @author miled
  */
-public class AjoutcommandeController implements Initializable {
+public class RetirerarticlesController implements Initializable {
 
     @FXML
-    private TextField status;
-    @FXML
-    private DatePicker date_ajout;
-    @FXML
-    private DatePicker date_cloture;
-    @FXML
-    private TextField motif_cloture;
+    private TextField Qte;
+    private int id;
 
     /**
      * Initializes the controller class.
@@ -45,21 +39,26 @@ public class AjoutcommandeController implements Initializable {
         // TODO
     }    
 
-    @FXML
-    private void Ajoutercommande(ActionEvent event) throws IOException {
+    public void init(articles a){
     
-        commande_services cs = new commande_services();
-        cs.Ajoutercommande(new commande(status.getText() , date_ajout.getValue().toString(), date_cloture.getValue().toString(), motif_cloture.getText() ));
-       // cs.Ajoutercommande2(Integer.parseInt(QteC.getText()));
-        JOptionPane.showMessageDialog(null,"commande ajoutée");
-               
-      Parent root = FXMLLoader.load(getClass().getResource("../gui/detaillearticles.fxml")) ;
+    id = a.getId_articles();
+        Qte.setText( Integer.toString(a.getQte()) );
+    }
+    @FXML
+    private void retirerarticels(ActionEvent event) throws IOException {
+     articels_services as = new articels_services();
+            // articles a  = retirerarticels.getSelectionModel().getSelectedItem();
+
+    as.retirerarticles(id,(Integer.parseInt(Qte.getText())));
+        JOptionPane.showMessageDialog(null,"articles modifiée");
+        Parent root = FXMLLoader.load(getClass().getResource("../gui/retirerarticles.fxml")) ;
      Scene rcScene= new Scene(root);
     	
   	Stage window= (Stage)((Node)event.getSource()).getScene().getWindow();
 	window.setScene(rcScene);
 	window.show();
-    }  
-                
     }
-    
+
+   
+    }    
+

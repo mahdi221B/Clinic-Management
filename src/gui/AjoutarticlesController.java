@@ -1,4 +1,4 @@
-/*
+    /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
@@ -28,7 +28,8 @@ import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import javax.swing.JOptionPane;
 import services.articels_services;
-
+import entites.typearticles;
+import entites.destination;
 
 /**
  * FXML Controller class
@@ -43,13 +44,15 @@ public class AjoutarticlesController implements Initializable {
     private TextField Qte;
     @FXML
     private TextField description;
-    @FXML
-    private TextField type_article;
-    @FXML
     private TextField aquidestine;
     @FXML
     private Label warning;
-    
+    @FXML
+    private ComboBox  cboxtype;
+    private typearticles type =null;
+    @FXML
+    private ComboBox cboxdestine ;
+    private destination a_qui_destiné=null;
     
   //  ObservableList typelist = FXCollections.observableArrayList("medicament","equipement");
 //ObservableList destine_lyste = FXCollections.observableArrayList("enfant","adulte","tous");
@@ -60,16 +63,10 @@ public class AjoutarticlesController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-     
-        //type_article.getItems().setAll(type_articles.values()) ;
-         // aquidestine.getItems().setAll(destine.values());
-         
-         //type_article.setItems(typelist);
-         //aquidestine.setItems(destine_lyste);
-
-    
-
+        ObservableList<String> list = FXCollections.observableArrayList(type.equipement.toString(),type.medicaments.toString() );
+    cboxtype.setItems(list);
+  ObservableList<String> list2 = FXCollections.observableArrayList( a_qui_destiné.adulte.toString(), a_qui_destiné.enfant.toString() ,  a_qui_destiné.tous.toString() );
+    cboxdestine.setItems(list2);
     }
 
     
@@ -79,21 +76,21 @@ public class AjoutarticlesController implements Initializable {
 
                @FXML
     private void ajoutearticles(ActionEvent event) {
-            if(nom.getText().isEmpty() || Qte.getText().isEmpty() || description.getText().isEmpty() || type_article.getText().isEmpty() ||  aquidestine.getText().isEmpty() )
-    {warning.setText("Remplissez tous les champs");
-    } else {
+            //if(nom.getText().isEmpty() || Qte.getText().isEmpty() || description.getText().isEmpty()|| aquidestine.getText().isEmpty() )
+   // {warning.setText("Remplissez tous les champs");
+   // } else {
            articels_services as = new articels_services();
-        as.Ajoutrarticle(new articles(nom.getText(), Integer.parseInt(Qte.getText()) , description.getText() ,type_article.getText() , aquidestine.getText() )) ;
+           as.Ajoutrarticle(new articles(nom.getText(), Integer.parseInt(Qte.getText()) , description.getText() , cboxtype.getValue().toString() , cboxdestine.getValue().toString()  )) ;
         //System.out.println((type_article.getSelectionModel().getSelectedItem()).getClass() );
        JOptionPane.showMessageDialog(null,"articles ajoutée");
-        Parent root = null;
+    /*    Parent root = null;
                
   Scene rcScene= new Scene(root);
     	
   	Stage window= (Stage)((Node)event.getSource()).getScene().getWindow();
 	window.setScene(rcScene);
-	window.show();
-    }}
+	window.show();*/
+    }
 
     @FXML
     private void exit(ActionEvent event) throws IOException {

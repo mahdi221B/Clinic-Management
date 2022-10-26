@@ -12,13 +12,48 @@ import java.sql.Date;
  */
 public class commande {
 
-    
+            
  
     private int id_commande;
+        private int QteC;
     private String status;
     private String date_ajout;
     private String date_cloture ;
-    private String motif_cloture ;
+    private String motif_cloture;
+    private int id_articles;
+
+    public commande(String status, String date_ajout, String date_cloture, String motif_cloture, int QteC, String articles) {
+        this.status = status;
+        this.date_ajout = date_ajout;
+        this.date_cloture = date_cloture;
+        this.motif_cloture = motif_cloture;
+        this.QteC = QteC;
+    }
+
+    public commande(int id_commande, String status, String date_ajout, String date_cloture, String motif_cloture, int quantité, String articles) {
+        this.id_commande = id_commande;
+        this.status = status;
+        this.date_ajout = date_ajout;
+        this.date_cloture = date_cloture;
+        this.motif_cloture = motif_cloture;
+        this.QteC = QteC;
+    }
+
+    public commande( int QteC, String date_ajout) {
+        this.QteC = QteC;
+        this.date_ajout = date_ajout;
+    }
+
+
+    public int getQteC() {
+        return QteC;
+    }
+
+    public void setQteC(int QteC) {
+        this.QteC = QteC;
+    }
+
+  
 
     public commande(int id_commande, String status, String date_ajout, String date_cloture, String motif_cloture) {
         this.id_commande = id_commande;
@@ -33,6 +68,15 @@ public class commande {
     }
 
     public commande(String status, String date_ajout, String date_cloture, String motif_cloture) {
+        this.status = status;
+        this.date_ajout = date_ajout;
+        this.date_cloture = date_cloture;
+        this.motif_cloture = motif_cloture;
+    }
+
+    public commande(int id_commande, int QteC, String status, String date_ajout, String date_cloture, String motif_cloture) {
+        this.id_commande = id_commande;
+        this.QteC = QteC;
         this.status = status;
         this.date_ajout = date_ajout;
         this.date_cloture = date_cloture;

@@ -3,10 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package services;
-
+import com.twilio.Twilio;
+import java.util.stream.Collectors;
 import java.sql.Connection;
 import outils.MyDb;
 import  entites.commande;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.lang.reflect.Field;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 //import entites.statut_commande;
 import java.sql.SQLException;
@@ -23,6 +32,15 @@ import java.time.Instant;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import com.aspose.cells.*;
+import java.io.*;
+
+
+import com.twilio.Twilio;
+import com.twilio.type.PhoneNumber;
+import com.twilio.rest.api.v2010.account.Message;
+import java.time.LocalDate;
+;
 /**
  *
  * @author miled
@@ -38,6 +56,16 @@ public class commande_services
       public void Ajoutercommande(commande c){
         try {
                 String req = "INSERT INTO commande(status,date_ajout,date_cloture,motif_cloture) VALUES ('"+c.getStatus() +"','"+c.getDate_ajout()+"','"+c.getDate_cloture()+"','"+c.getMotif_cloture()+"')";
+            Statement st = cnx.createStatement();
+            st.executeUpdate(req);
+            System.out.println("commande ajouter avec succés");
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
+       public void Ajoutercommande2(commande c){
+        try {
+                String req = "INSERT INTO commande(QteC,date_ajout) VALUES ('"+c.getQteC()+"','"+c.getDate_ajout()+"')";
             Statement st = cnx.createStatement();
             st.executeUpdate(req);
             System.out.println("commande ajouter avec succés");
@@ -65,7 +93,7 @@ public class commande_services
       */
        public void updatecoamande(commande c ) {
         try {
-            String req="update commande SET status=?,date_ajout=?,date_cloture=?,motif_cloture=? where id_commande=?" ;
+            String req="update commande SET  status=?,date_ajout=?,date_cloture=?,motif_cloture=? where id_commande=?" ;
             PreparedStatement st = cnx.prepareStatement(req);
             st.setString(1,(c.getStatus()));
 
@@ -80,9 +108,45 @@ public class commande_services
             Logger.getLogger(commande_services .class.getName()).log(Level.SEVERE, null, ex);
         }
         
-    }
+    }   
        
-    
+     public void validecoamande(commande c ) {
+        try {
+            String req="update commande SET  status=?,date_cloture=?,motif_cloture=? where id_commande=?" ;
+            PreparedStatement st = cnx.prepareStatement(req);
+            st.setString(1,("sucess"));
+
+            st.setString(2,LocalDate.now().toString());
+            st.setString(3, c.getMotif_cloture());
+            st.setInt(4, c.getId_commande());
+            st.executeUpdate();
+            System.out.println("commande valide succés");
+          
+        } catch (SQLException ex) {
+            Logger.getLogger(commande_services .class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }   
+       public void refusercommande(commande c ) {
+        try {
+            String req="update commande SET  status=?,date_cloture=?,motif_cloture=? where id_commande=?" ;
+            PreparedStatement st = cnx.prepareStatement(req);
+            st.setString(1,("echec"));
+
+            st.setString(2,LocalDate.now().toString());
+            st.setString(3, c.getMotif_cloture());
+            st.setInt(4, c.getId_commande());
+            st.executeUpdate();
+            System.out.println("commande refuse");
+          
+        } catch (SQLException ex) {
+            Logger.getLogger(commande_services .class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }   
+     
+     
+     
      
  
        public ObservableList<commande> getallcommandes(){
@@ -90,16 +154,18 @@ public class commande_services
 
            try {
              
-             String  req = "SELECT * FROM commande";
+             String  req = "SELECT * FROM commande ";
              PreparedStatement st = cnx.prepareStatement(req);
              ResultSet  rs =st.executeQuery();
              while(rs.next()){
              int id_commande=rs.getInt("id_commande");
              String status=rs.getString("status");
              String date_ajout=rs.getString("date_ajout");
+               int QteC =rs.getInt("QteC");
+
              String date_cloture =rs.getString("date_cloture");
              String motif_cloture=rs.getString("motif_cloture");
-             commandelist.add(new commande(id_commande,status, date_ajout, date_cloture, motif_cloture));
+             commandelist.add(new commande(id_commande,QteC,status, date_ajout, date_cloture, motif_cloture));
                         
 
              }  
@@ -121,13 +187,67 @@ public class commande_services
         }
     }   
 
+     //type de chaine de caratc 
+     //
+     //field  asami les cloone lfou9 fel excel
+    public  void toexcel() throws SQLException, IOException{
+     /*List<commande> c= new ArrayList();
+          List<commande> c2= new ArrayList();
+
+            //3abbi el list article
+            
+             String  req = "SELECT * FROM commande";
+             PreparedStatement st = cnx.prepareStatement(req);
+             ResultSet  rs =st.executeQuery();
+             while(rs.next()){
+             int id_commande=rs.getInt("id_commande");
+             String status=rs.getString("status");
+             String date_ajout=rs.getString("date_ajout");
+             int QteC =rs.getInt("QteC");
+             String date_cloture =rs.getString("date_cloture");
+             String motif_cloture=rs.getString("motif_cloture");
+             c.add(new commande(id_commande,QteC,status, date_ajout, date_cloture, motif_cloture));
+             }*/
+                   //  c2=c.stream().filter(c1->( c1.getStatus().equals("a_traite"))).collect(Collectors.toList());
+        
+         
+    
+          
+     
+     
+
+    }
+/*
+ public static final String ACCOUNT_SID = "AC2420083fb29a62edd5f592cfa12ac98f";
+    public static final String AUTH_TOKEN = "c2daf4ab58d08620521e2471488640f5";
+
+    public void sendSms() {
+        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+        Message msg = Message.creator(new PhoneNumber("+21650700441"),new PhoneNumber("+12284600693"),("votre commande est validé")).create();
+    
+    }
+    */
+    
+         
      public commande_services() {
         cnx=MyDb.getInstance().getCnx();
     }
-     
-     
-     
-     
-     
-     
+  
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

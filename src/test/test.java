@@ -13,12 +13,13 @@ import entites.articles;
 import entites.ligne_de_commande;
 import services.lignedecommande_services;
 import java.sql.Date;
+import java.sql.SQLException;
 /**
  *
  * @author miled
  */
 public class test {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
           System.out.println(MyDb.getInstance());
           
          commande_services  cs = new commande_services();
@@ -31,21 +32,20 @@ public class test {
          //lcs.Ajouterlignecommande(lc);
          
        
-       commande c3 = new commande("encours",("2022-10-10"), ("2022-10-14"),"");
+       commande c3 = new commande(50,"2015-10-10" );
          // commande c = new commande( statut_commande ,Date.valueOf("1665-08-08"),Date.valueOf("1665-08-08")  ,"echec") ;   
 //commande c = new commande(2);
-       cs.Ajoutercommande(c3);
+       cs.Ajoutercommande2(c3);
        //cs.Supprimercommande(c);
-       //cs.getallcommandes();
+       cs.getallcommandes();
 //       System.out.println(cs.getallcommandes());
 //cs.updatecoamande(c3);
      
   //fournisseur f2 =  new fournisseur(1,"drii", 50, 2);                        
   //fs.Ajouterfournisseur(f2);
   //fs.updateFournisseur(f2);
-  System.out.println(cs.getallcommandes());
+  //getallcommandes());
   //cs.Supprimercommande(c2);
-//System.out.println(as.getallarticles());        
         
        
     }   

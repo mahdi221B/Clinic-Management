@@ -25,6 +25,9 @@ import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import services.articels_services;
 import services.commande_services;
+import java.io.InputStream ;
+import java.io.InputStreamReader;
+import java.sql.SQLException;
 
 /**
  * FXML Controller class
@@ -43,6 +46,9 @@ public class DetaillecommandeController implements Initializable {
     private TableColumn<commande,Date> date_cloture;
     @FXML
     private TableColumn<commande, String> motif_cloture;
+    @FXML
+    private TableColumn<commande, Integer> QteC;
+    
 
     /**
      * Initializes the controller class.
@@ -55,13 +61,15 @@ public class DetaillecommandeController implements Initializable {
         date_ajout.setCellValueFactory(new PropertyValueFactory<commande,Date>("date_ajout")) ;
         date_cloture.setCellValueFactory(new PropertyValueFactory<commande,Date>("date_cloture")) ;
         motif_cloture.setCellValueFactory(new PropertyValueFactory<commande,String>("motif_cloture")) ;
-             ObservableList<commande> listcmd = cs.getallcommandes();
+        QteC.setCellValueFactory(new PropertyValueFactory<commande,Integer>("QteC")) ;
+     
+        ObservableList<commande> listcmd = cs.getallcommandes();
         detaillecommande.setItems(listcmd) ;
     }    
 
     @FXML
     private void Ajoutercommande(ActionEvent event) throws IOException {
- FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/ajoutcommande.fxml"));
+ FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/ajoutcommande2.fxml"));
             Parent root =loader.load();
             //Accessing the destined controller
             //get the new scene
@@ -89,4 +97,32 @@ public class DetaillecommandeController implements Initializable {
         
     }
     
-}
+    
+    /////////////////////////////
+    /*
+    InputStreamResource file = new InputStreamResource(liste des attributs );
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION,"attachment; filename=".concat(nameSheet).concat(".csv"))
+                .contentType(MediaType.parseMediaType("text/plain"))
+                 .body(file);
+    ////////////////////////////*/
+/*
+    @FXML
+    private void export(ActionEvent event) {
+        InputStreamResource  file = new InputStreamResource(RelationService.(status, date_ajout,date_cloture,motif_cloture,QteC));
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION,"attachment; filename=".concat(nameSheet).concat(".csv"))
+                .contentType(MediaType.parseMediaType("text/plain"))
+                .body(file);
+    }
+    */
+
+
+
+    @FXML
+    private void export(ActionEvent event) throws SQLException, IOException {
+    
+    commande_services cs = new commande_services();
+              cs.toexcel();
+    }
+    }

@@ -14,59 +14,23 @@ import java.util.Objects;
 public class articles {
     private int id_articles;
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 31 * hash + this.id_articles;
-        hash = 31 * hash + Objects.hashCode(this.nom);
-        hash = 31 * hash + this.Qte;
-        hash = 31 * hash + Objects.hashCode(this.description);
-        hash = 31 * hash + Objects.hashCode(this.type);
-        hash = 31 * hash + Objects.hashCode(this.a_qui_destiné);
-        return hash;
-    }
+   
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final articles other = (articles) obj;
-        if (this.id_articles != other.id_articles) {
-            return false;
-        }
-        if (this.Qte != other.Qte) {
-            return false;
-        }
-        if (!Objects.equals(this.nom, other.nom)) {
-            return false;
-        }
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        if (!Objects.equals(this.type, other.type)) {
-            return false;
-        }
-        return Objects.equals(this.a_qui_destiné, other.a_qui_destiné);
-    }
     private String nom;
     private int  Qte;
     private String description ;
-    //private type_articles  type;
+    //private type_articles  type
     private String type ;
+    private String  a_qui_destiné;
 
     public articles(int id_articles) {
         this.id_articles = id_articles;
     }
-    
+     public articles(int id_articles, int Qte) {
+        this.id_articles = id_articles;
+        this.Qte = Qte;
+    }
     //private destine  a_qui_destiné;
-    private String  a_qui_destiné;
 
     public int getId_articles() {
         return id_articles;
@@ -135,7 +99,47 @@ public class articles {
         this.type = type;
         this.a_qui_destiné = a_qui_destiné;
     }
+  @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 31 * hash + this.id_articles;
+        hash = 31 * hash + Objects.hashCode(this.nom);
+        hash = 31 * hash + this.Qte;
+        hash = 31 * hash + Objects.hashCode(this.description);
+        hash = 31 * hash + Objects.hashCode(this.type);
+        hash = 31 * hash + Objects.hashCode(this.a_qui_destiné);
+        return hash;
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final articles other = (articles) obj;
+        if (this.id_articles != other.id_articles) {
+            return false;
+        }
+        if (this.Qte != other.Qte) {
+            return false;
+        }
+        if (!Objects.equals(this.nom, other.nom)) {
+            return false;
+        }
+        if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
+        if (!Objects.equals(this.type, other.type)) {
+            return false;
+        }
+        return Objects.equals(this.a_qui_destiné, other.a_qui_destiné);
+    }
     }
 
      

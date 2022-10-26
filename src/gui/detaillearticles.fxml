@@ -3,11 +3,12 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="444.0" prefWidth="704.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DetaillearticlesController">
+<AnchorPane id="AnchorPane" prefHeight="575.0" prefWidth="743.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DetaillearticlesController">
    <children>
-      <TableView fx:id="tarticles" layoutX="18.0" layoutY="21.0" prefHeight="325.0" prefWidth="669.0">
+      <TableView fx:id="tarticles" layoutX="17.0" layoutY="88.0" prefHeight="258.0" prefWidth="670.0">
         <columns>
           <TableColumn fx:id="nom" prefWidth="126.0" text="nom" />
           <TableColumn fx:id="qte" prefWidth="88.0" text="qte" />
@@ -17,7 +18,11 @@
         </columns>
       </TableView>
       <Button layoutX="72.0" layoutY="379.0" mnemonicParsing="false" onAction="#Ajoutrarticle" text="ajouter" />
-      <Button layoutX="269.0" layoutY="379.0" mnemonicParsing="false" onAction="#updatearticles" text="modifier" />
-      <Button layoutX="456.0" layoutY="379.0" mnemonicParsing="false" onAction="#Supprimerarticle" text="supprimer" />
+      <Button layoutX="196.0" layoutY="379.0" mnemonicParsing="false" onAction="#updatearticles" text="modifier" />
+      <Button layoutX="318.0" layoutY="379.0" mnemonicParsing="false" onAction="#Supprimerarticle" text="supprimer" />
+      <Button layoutX="455.0" layoutY="379.0" mnemonicParsing="false" onAction="#Ajoutercommande" text="commander" />
+      <Button layoutX="581.0" layoutY="379.0" mnemonicParsing="false" onAction="#retirerarticles" text="retirer" />
+      <TextField fx:id="recherche" layoutX="99.0" layoutY="35.0" promptText="recherche" />
+      <Button layoutX="388.0" layoutY="35.0" mnemonicParsing="false" onAction="#recherche" text="recherche" />
    </children>
 </AnchorPane>
