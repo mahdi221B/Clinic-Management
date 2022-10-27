@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
 import service.BlogService;
 import service.CategorieService;
 
@@ -31,8 +32,7 @@ public class ModifierCategorieController implements Initializable {
 
     @FXML
     private TextField tfText;
-    @FXML
-    private TextField tfDate_c;
+    
     @FXML
     private TextField tfId_Crea;
     
@@ -51,7 +51,7 @@ public class ModifierCategorieController implements Initializable {
          
        IDC = C.getId_Categorie();
        tfText.setText(C.getText_Categorie());
-       tfDate_c.setText(C.getDate_Creation_Categorie());
+      
        tfId_Crea.setText(Integer.toString(C.getId_Createur_Categorie()));
         
     } 
@@ -59,8 +59,10 @@ public class ModifierCategorieController implements Initializable {
     @FXML
     private void ModifierCat(ActionEvent categorie) throws IOException {
         CategorieService s = new CategorieService();
-       s.update(new Categorie(IDC,tfText.getText(),tfDate_c.getText(),Integer.parseInt(tfId_Crea.getText())));
-       JOptionPane.showMessageDialog(null,"Categorie modifiée");
+       s.update(new Categorie(IDC,tfText.getText(),Integer.parseInt(tfId_Crea.getText())));
+       Notifications.create().title("Alert")
+                    .text("categorie modifié")
+                    .showInformation();
      Parent root = FXMLLoader.load(getClass().getResource("../gui/DetailCategorie.fxml"));
 
         Scene rcScene = new Scene(root);

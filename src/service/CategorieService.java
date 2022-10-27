@@ -94,4 +94,23 @@ public void delete(Categorie u){
         return listCategories ;  
         }
 
+     public List<Categorie> TrierParCategorie() throws SQLException {
+        List<Categorie> retour = new ArrayList<>();
+        Statement st = cnx.createStatement();
+        String req = "SELECT * from categorie order by Date_Creation_Categorie";
+       ResultSet rs = st.executeQuery(req) ;
+        while (rs.next()) {
+           int Id_Categorie=rs.getInt("Id_Categorie");
+                String Text_Categorie=rs.getString("Text_Categorie");
+                String Date_Creation_Categorie =rs.getString("Date_Creation_Categorie");
+                int Id_Createur_Categorie=rs.getInt("Id_Createur_Categorie"); 
+
+            Categorie p = new Categorie(Id_Categorie, Text_Categorie, Date_Creation_Categorie, Id_Createur_Categorie);
+
+            retour.add(p);
+
+        }
+
+        return retour;
+    }
 }

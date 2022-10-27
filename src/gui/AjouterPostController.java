@@ -16,10 +16,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
 import service.BlogService;
 
 /**
@@ -39,6 +41,16 @@ public class AjouterPostController implements Initializable {
     private TextField tfReview;
     @FXML
     private TextField tfUser_Id;
+    @FXML
+    private Label warning;
+    @FXML
+    private Label warning1;
+    @FXML
+    private Label warning3;
+    @FXML
+    private Label warning4;
+    @FXML
+    private Label warning5;
 
     /**
      * Initializes the controller class.
@@ -50,10 +62,13 @@ public class AjouterPostController implements Initializable {
 
     @FXML
     private void AjouterPost(ActionEvent post) throws IOException {
-        
+     
+       
          BlogService s = new BlogService();
    s.add(new Blog(Integer.parseInt(tfUser_Id.getText()),tfSujet.getText(),tfDescription.getText(),tfReview.getText(),tfDate.getValue().toString()));
-    JOptionPane.showMessageDialog(null,"Post ajoutée");
+  Notifications.create().title("Alert")
+                    .text("Post ajouté")
+                    .showInformation();
     
     Parent root = FXMLLoader.load(getClass().getResource("../gui/DetailPost.fxml")) ;
     	Scene rcScene= new Scene(root);

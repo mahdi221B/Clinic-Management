@@ -31,6 +31,7 @@ public class CommentaireService implements IService<Commentaire>{
     
     public void add(Commentaire u){
         try {
+            
             String req = "INSERT INTO commentaire (Text_Commentaire,User_Id_Commentaire,Id_Post_Commentaire) VALUES (?,?,?)";
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setString(1,u.getText_Commentaire());
@@ -47,6 +48,7 @@ public class CommentaireService implements IService<Commentaire>{
 
 
 public void update(Commentaire u) {
+    
         try {
             String req="update commentaire SET Text_Commentaire='"+u.getText_Commentaire()+"',User_Id_Commentaire='"+u.getUser_Id_Commentaire()+"',Id_Post_Commentaire='"+u.getId_Post_Commentaire()+"' where Id_Commentaire='"+u.getId_Commentaire()+"'" ;                                                                                                               
             Statement st = cnx.createStatement();
@@ -94,4 +96,45 @@ public ObservableList<Commentaire> getAll() {
         return listCommentaires ;  
         }
 
+
+
+
+public int TotalComments() {
+    
+    int n = 0;
+    try {
+        String req = "select * from commentaire";
+        Statement st =cnx.createStatement();
+        ResultSet rs = st.executeQuery(req);
+        while (rs.next()) {
+            n = n+1;
+        }
+    } catch(SQLException ex) {
+        System.out.println(ex);
+    }
+    return n;
 }
+
+
+public int getTop () {
+
+        try {
+            String req="select COUNT(*) AS most , User_Id_Commentaire as id FROM commentaire GROUP BY User_Id_Commentaire ORDER by most DESC LIMIT 1;" ;
+            Statement st = cnx.createStatement(); 
+            ResultSet rs = st.executeQuery(req) ;
+            while(rs.next()) {
+                  int idMostLiked = rs.getInt("id");
+                  return idMostLiked;
+            }
+           
+        } catch (SQLException ex) {
+                                    System.out.println("error occured ");         
+            }
+         return 0;
+
+}
+
+}
+
+
+

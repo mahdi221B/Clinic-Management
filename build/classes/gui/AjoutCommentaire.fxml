@@ -3,20 +3,33 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutCommentaireController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutCommentaireController">
    <children>
-      <Label layoutX="27.0" layoutY="83.0" prefHeight="21.0" prefWidth="154.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="Text_Commentaire" />
-      <Label layoutX="27.0" layoutY="150.0" prefHeight="21.0" prefWidth="154.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="User_Id_Commentaire" />
-      <Label layoutX="27.0" layoutY="209.0" prefHeight="21.0" prefWidth="187.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="Id_Post_Commentaire" />
-      <TextField fx:id="tfText_Comm" layoutX="190.0" layoutY="78.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" />
-      <TextField fx:id="tfUser_Comm" layoutX="190.0" layoutY="145.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" />
-      <TextField fx:id="tfId_Comm" layoutX="191.0" layoutY="204.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" />
-      <Button layoutX="191.0" layoutY="279.0" mnemonicParsing="false" onAction="#AjouterCom" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Ajouter" />
-      <Button layoutX="313.0" layoutY="279.0" mnemonicParsing="false" onMouseClicked="#ExitCom" prefHeight="31.0" prefWidth="69.0" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Exit" />
-      <Label fx:id="warning" layoutX="190.0" layoutY="235.0" prefHeight="31.0" prefWidth="187.0" textFill="RED" />
-      <Label fx:id="warning1" layoutX="190.0" layoutY="176.0" prefHeight="31.0" prefWidth="187.0" textFill="RED" />
-      <Label fx:id="warning2" layoutX="191.0" layoutY="119.0" prefHeight="31.0" prefWidth="187.0" textFill="RED" />
+      <Label layoutX="34.0" layoutY="133.0" prefHeight="21.0" prefWidth="154.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="Text_Commentaire" />
+      <Label layoutX="29.0" layoutY="198.0" prefHeight="21.0" prefWidth="154.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="User_Id_Commentaire" />
+      <Label layoutX="29.0" layoutY="257.0" prefHeight="21.0" prefWidth="187.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="Id_Post_Commentaire" />
+      <TextField fx:id="tfText_Comm" layoutX="192.0" layoutY="126.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" />
+      <TextField fx:id="tfUser_Comm" layoutX="192.0" layoutY="193.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" />
+      <TextField fx:id="tfId_Comm" layoutX="193.0" layoutY="252.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" />
+      <Button layoutX="193.0" layoutY="327.0" mnemonicParsing="false" onAction="#AjouterCom" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Ajouter" />
+      <Button layoutX="315.0" layoutY="327.0" mnemonicParsing="false" onMouseClicked="#ExitCom" prefHeight="31.0" prefWidth="69.0" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Exit" />
+      <Label fx:id="warning" layoutX="190.0" layoutY="283.0" prefHeight="31.0" prefWidth="187.0" textFill="RED" />
+      <Label fx:id="warning1" layoutX="193.0" layoutY="220.0" prefHeight="31.0" prefWidth="187.0" textFill="RED" />
+      <Label fx:id="warning2" layoutX="190.0" layoutY="157.0" prefHeight="31.0" prefWidth="187.0" textFill="RED" />
+      <ImageView fitHeight="365.0" fitWidth="435.0" layoutX="450.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/14912-200.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="332.0" layoutY="14.0" prefHeight="46.0" prefWidth="354.0" text="Ajouter commentaire">
+         <font>
+            <Font name="System Bold" size="31.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -23,8 +23,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import static javafx.scene.input.KeyCode.C;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
 import service.BlogService;
 import service.CategorieService;
 
@@ -46,8 +49,7 @@ public class DetailCategorieController implements Initializable {
     private TableColumn<Categorie, Integer> collId_C;
     @FXML
     private Label controleC;
-    @FXML
-    private TextField tfpasss;
+  
     
     /**
      * Initializes the controller class.
@@ -69,8 +71,7 @@ public class DetailCategorieController implements Initializable {
            try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/AjoutCategorie.fxml"));
             Parent root = loader.load();
-            //Accessing the destined controller
-            //get the new scene
+          
             tvCategorie.getScene().setRoot(root);
 
         } catch (IOException ex) {
@@ -86,7 +87,9 @@ public class DetailCategorieController implements Initializable {
         Categorie C = tvCategorie.getSelectionModel().getSelectedItem();
         CategorieService s = new CategorieService();
         s.delete(new Categorie(C.getId_Categorie()));
-        JOptionPane.showMessageDialog(null, "Categorie supprimée");
+        Notifications.create().title("Alert")
+                    .text("Categorie supprimé")
+                    .showInformation();
         Parent root = FXMLLoader.load(getClass().getResource("../gui/DetailCategorie.fxml"));
 
         Scene rcScene = new Scene(root);
@@ -103,15 +106,15 @@ public class DetailCategorieController implements Initializable {
         try {
             if (tvCategorie.getSelectionModel().getSelectedItem() != null) 
                  {
-                Categorie C = tvCategorie.getSelectionModel().getSelectedItem();//Avoir les donnes de formateur sélectionnée
-                //Change the scene
+                Categorie C = tvCategorie.getSelectionModel().getSelectedItem();
+              
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/ModifierCategorie.fxml"));
                 Parent root = loader.load();
-                //Accessing the destined controller
+                
                 ModifierCategorieController dpc = loader.getController();
                 //get the new scene
-                tfpasss.getScene().setRoot(root);
-                //Initializer les donnees de formateur
+                controleC.getScene().setRoot(root);
+               
                 dpc.init(C);
             }
         } catch (IOException ex) {
@@ -119,5 +122,29 @@ public class DetailCategorieController implements Initializable {
         
     }
     
+    
     }
-}
+
+    @FXML
+    private void Exit(MouseEvent event) {
+    }
+
+    @FXML
+    private void back1(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../gui/DetailPost.fxml")) ;
+    	Scene rcScene= new Scene(root);
+    	
+    	Stage window= (Stage)((Node)event.getSource()) .getScene().getWindow();
+    	window.setScene(rcScene);
+    	window.show();
+    }
+
+
+
+    }
+
+
+ 
+
+    
+

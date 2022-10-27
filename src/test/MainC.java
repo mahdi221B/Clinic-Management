@@ -23,7 +23,7 @@ public class MainC extends Application {
     
     @Override
     public void start(Stage primaryStage) throws IOException {
-     FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/DetailCommentaire.fxml"));
+     FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/GestionBlog.fxml"));
        Parent root =loader.load();
        //Acteur
        Scene scene = new Scene(root);

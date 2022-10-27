@@ -22,6 +22,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
 import service.CategorieService;
 import service.CommentaireService;
 
@@ -40,6 +41,10 @@ public class AjoutCommentaireController implements Initializable {
     private TextField tfId_Comm;
     @FXML
     private Label warning;
+    @FXML
+    private Label warning1;
+    @FXML
+    private Label warning2;
 
     /**
      * Initializes the controller class.
@@ -53,15 +58,21 @@ public class AjoutCommentaireController implements Initializable {
     private void AjouterCom(ActionEvent Commentaire) throws IOException {
        if(tfText_Comm.getText().isEmpty() || tfUser_Comm.getText().isEmpty() || tfId_Comm.getText().isEmpty())
     {warning.setText("Remplissez tous les champs");
+    warning1.setText("Remplissez tous les champs");
+    warning2.setText("Remplissez tous les champs");
     }else{
         try {
-            System.out.println(Integer.parseInt(tfId_Comm.getText()));
+            System.out.println(tfText_Comm.getText());
             try {
             System.out.println(Integer.parseInt(tfUser_Comm.getText()));
+                 try{
+                     System.out.println(Integer.parseInt(tfId_Comm.getText()));
                  
          CommentaireService s = new CommentaireService();
        s.add(new Commentaire(tfText_Comm.getText(),Integer.parseInt(tfUser_Comm.getText()),Integer.parseInt(tfId_Comm.getText())));
-    JOptionPane.showMessageDialog(null,"Commentaire ajouté");
+    Notifications.create().title("Alert")
+                    .text("Commentaire ajouté")
+                    .showInformation();
     
     Parent root = FXMLLoader.load(getClass().getResource("../gui/DetailCommentaire.fxml")) ;
     	Scene rcScene= new Scene(root);
@@ -69,12 +80,19 @@ public class AjoutCommentaireController implements Initializable {
     	Stage window= (Stage)((Node)Commentaire.getSource()) .getScene().getWindow();
     	window.setScene(rcScene);
     	window.show();
-                 }catch(Exception e){
+        
+        
+         }catch(Exception e){
+                 warning2.setText("Doit etre de type String");
+                 }
+            } catch(Exception e){
                  warning.setText("Doit etre de type entier");
+                 
                 }
                     }catch(Exception e){
          warning.setText("Doit etre de type entier");
         }
+        
         }
     }
    

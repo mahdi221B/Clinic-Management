@@ -21,6 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
 import service.BlogService;
 
 /**
@@ -34,8 +35,7 @@ public class ModifierPostController implements Initializable {
     private TextField tfSujet;
     @FXML
     private TextField tfDescription;
-    @FXML
-    private TextField tfDate;
+
     @FXML
     private TextField tfReview;
     @FXML
@@ -56,7 +56,7 @@ public class ModifierPostController implements Initializable {
         ID = E.getId_Post();
        tfSujet.setText(E.getSujet_Post());
         tfDescription.setText(E.getDescription_Post());
-        tfDate.setText(E.getDate_Post());
+        
         tfReview.setText(E.getReview_Post());
         tfUser_Id.setText(Integer.toString(E.getUser_Id_Post()));
         
@@ -65,8 +65,10 @@ public class ModifierPostController implements Initializable {
     @FXML
     private void ModifierPost(ActionEvent post) throws IOException{
         BlogService s = new BlogService();
-       s.update(new Blog (ID,tfSujet.getText(),tfDescription.getText(),tfDate.getText(),tfReview.getText(),Integer.parseInt(tfUser_Id.getText())));
-       JOptionPane.showMessageDialog(null,"Post modifiée");
+       s.update(new Blog (ID,tfSujet.getText(),tfDescription.getText(),tfReview.getText(),Integer.parseInt(tfUser_Id.getText())));
+       Notifications.create().title("Alert")
+                    .text("Post Modifié")
+                    .showInformation();
        Parent root = FXMLLoader.load(getClass().getResource("../gui/DetailPost.fxml")) ;
     	Scene rcScene= new Scene(root);
             

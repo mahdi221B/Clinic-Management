@@ -32,6 +32,14 @@ public Blog(){
         this.User_Id_Post = User_Id_Post;
         
     }
+
+    public Blog(int Id_Post, int User_Id_Post, String Sujet_Post, String Description_Post, String Review_Post) {
+        this.Id_Post = Id_Post;
+        this.User_Id_Post = User_Id_Post;
+        this.Sujet_Post = Sujet_Post;
+        this.Description_Post = Description_Post;
+        this.Review_Post = Review_Post;
+    }
     
     
 
@@ -161,11 +169,7 @@ public Blog(){
 
     
 
-    @Override
-    public String toString() {
-        return "Blog{" + "Id_Post=" + Id_Post + ", Sujet_Post=" + Sujet_Post  + ", Description_Post=" + Description_Post + ", Date_Post=" + Date_Post +  ", Review_Post=" + Review_Post + ", User_Id_Post=" + User_Id_Post + '}';
-    }
-
+  
     
      
 }

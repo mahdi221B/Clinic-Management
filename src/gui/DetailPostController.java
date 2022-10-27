@@ -26,6 +26,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
 import service.BlogService;
 
 /**
@@ -48,10 +49,11 @@ public class DetailPostController implements Initializable {
     @FXML
     private TableView<Blog> tvPost;
     private Label warning;
-    @FXML
-    private TextField tfpass;
+
     @FXML
     private Label controle;
+    @FXML
+    private Label TotalPost;
 
     /**
      * Initializes the controller class.
@@ -66,6 +68,7 @@ public class DetailPostController implements Initializable {
         collUser.setCellValueFactory(new PropertyValueFactory<Blog, Integer>("User_Id_Post"));
         ObservableList<Blog> list = s.getAll();
         tvPost.setItems(list);
+        setTotalPost(Integer.toString(s.TotalPOST()));
     }
 
     @FXML
@@ -80,7 +83,7 @@ public class DetailPostController implements Initializable {
                 //Accessing the destined controller
                 ModifierPostController dpc = loader.getController();
                 //get the new scene
-                tfpass.getScene().setRoot(root);
+                controle.getScene().setRoot(root);
                 //Initializer les donnees de formateur
                 dpc.init(E);
             }
@@ -96,7 +99,9 @@ public class DetailPostController implements Initializable {
         Blog E = tvPost.getSelectionModel().getSelectedItem();
         BlogService s = new BlogService();
         s.delete(new Blog(E.getId_Post()));
-        JOptionPane.showMessageDialog(null, "Post supprimé");
+        Notifications.create().title("Alert")
+                    .text("Post supprimé")
+                    .showInformation();;
         Parent root = FXMLLoader.load(getClass().getResource("../gui/DetailPost.fxml"));
 
         Scene rcScene = new Scene(root);
@@ -121,4 +126,31 @@ public class DetailPostController implements Initializable {
 
     }
 
+    @FXML
+    private void addcomment(ActionEvent event) throws IOException {
+  Parent root = FXMLLoader.load(getClass().getResource("../gui/AjoutCommentaire.fxml")) ;
+    	Scene rcScene= new Scene(root);
+    	
+    	Stage window= (Stage)((Node)event.getSource()) .getScene().getWindow();
+    	window.setScene(rcScene);
+    	window.show();
+}
+
+    @FXML
+    private void Addcategorie(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../gui/AjoutCategorie.fxml")) ;
+    	Scene rcScene= new Scene(root);
+    	
+    	Stage window= (Stage)((Node)event.getSource()) .getScene().getWindow();
+    	window.setScene(rcScene);
+    	window.show();
+
+    }
+
+    public void setTotalPost(String TotalPost) {
+        this.TotalPost.setText (TotalPost);
+        
+    }
+    
+    
 }

@@ -1,23 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DetailCommentaireController">
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DetailCommentaireController">
    <children>
-      <TableView fx:id="tvCommentaire" layoutX="41.0" layoutY="35.0" prefHeight="278.0" prefWidth="518.0" stylesheets="@newCascadeStyleSheet.css">
+      <TableView fx:id="tvCommentaire" layoutX="15.0" layoutY="54.0" prefHeight="450.0" prefWidth="900.0" stylesheets="@newCascadeStyleSheet.css">
         <columns>
-          <TableColumn fx:id="collText_Comm" prefWidth="176.0" text="Text_Commentaire" />
-          <TableColumn fx:id="collUser_Comm" prefWidth="173.0" text="User_Id_Commentaire" />
-            <TableColumn fx:id="collId_Comm" prefWidth="168.0" text="Id_Post_Commentaire" />
+          <TableColumn fx:id="collText_Comm" prefWidth="369.0" text="Text_Commentaire" />
+          <TableColumn fx:id="collUser_Comm" prefWidth="327.0" text="User_Id_Commentaire" />
+            <TableColumn fx:id="collId_Comm" prefWidth="217.0" text="Id_Post_Commentaire" />
         </columns>
       </TableView>
-      <Button layoutX="109.0" layoutY="330.0" mnemonicParsing="false" onAction="#AjouterCom" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Ajouter" />
-      <Button layoutX="268.0" layoutY="330.0" mnemonicParsing="false" onAction="#ModifierComm" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Modifier" />
-      <Button layoutX="420.0" layoutY="330.0" mnemonicParsing="false" onAction="#SupprimerComm" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Supprimer" />
+      <Button layoutX="163.0" layoutY="571.0" mnemonicParsing="false" onAction="#AjouterCom" prefHeight="31.0" prefWidth="173.0" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Ajouter" />
+      <Button layoutX="379.0" layoutY="571.0" mnemonicParsing="false" onAction="#ModifierComm" prefHeight="31.0" prefWidth="186.0" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Modifier" />
+      <Button layoutX="598.0" layoutY="571.0" mnemonicParsing="false" onAction="#SupprimerComm" prefHeight="31.0" prefWidth="236.0" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Supprimer" />
       <Label fx:id="controlecomm" layoutX="551.0" layoutY="376.0" text=" " />
+      <Button layoutX="900.0" layoutY="-1.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="31.0" prefWidth="45.0" text="X" textFill="RED">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="170.0" layoutY="20.0" prefHeight="21.0" prefWidth="133.0" text="Total Comments:" />
+      <Label fx:id="tftop" layoutX="320.0" layoutY="20.0" prefHeight="21.0" prefWidth="18.0" text=" " textFill="RED">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="406.0" layoutY="20.0" prefHeight="21.0" prefWidth="89.0" text="This user ID " />
+      <Label fx:id="topcommenter" layoutX="495.0" layoutY="20.0" text=" " textFill="RED">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="542.0" layoutY="20.0" text="is the most commenter" />
+      <Button layoutX="396.0" layoutY="641.0" mnemonicParsing="false" onAction="#sendmail" prefHeight="31.0" prefWidth="153.0" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Send mail" />
+      <FontAwesomeIconView fill="RED" glyphName="BELL" layoutX="565.0" layoutY="665.0" size="20" text="" wrappingWidth="44.999997317790985" />
    </children>
 </AnchorPane>

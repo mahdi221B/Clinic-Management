@@ -26,6 +26,12 @@ public Commentaire() {
         this.Id_Post_Commentaire = Id_Post_Commentaire;
     }
 
+    public Commentaire(int Id_Commentaire, int User_Id_Commentaire) {
+        this.Id_Commentaire = Id_Commentaire;
+        this.User_Id_Commentaire = User_Id_Commentaire;
+    }
+    
+
     public Commentaire(String Text_Commentaire,int User_Id_Commentaire, int Id_Post_Commentaire ) {
         this.Text_Commentaire = Text_Commentaire;
         this.User_Id_Commentaire = User_Id_Commentaire; 

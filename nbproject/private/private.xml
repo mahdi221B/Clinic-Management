@@ -8,22 +8,21 @@
             <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/gui/ModifierCommentaireController.java</file>
             <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/gui/ModifierCategorieController.java</file>
             <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/test/Test.java</file>
-            <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/gui/DetailCommentaireController.java</file>
             <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/gui/ModifierPostController.java</file>
+            <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/gui/DetailCommentaireController.java</file>
             <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/outils/newCascadeStyleSheet.css</file>
             <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/service/CommentaireService.java</file>
-            <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/gui/AjoutCategorieController.java</file>
             <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/entities/Commentaire.java</file>
+            <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/gui/AjoutCategorieController.java</file>
             <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/test/MainC.java</file>
             <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/entities/Blog.java</file>
             <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/gui/DetailPostController.java</file>
+            <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/test/RSSReader.java</file>
             <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/entities/Categorie.java</file>
             <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/interfaces/IService.java</file>
-            <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/service/CategorieService.java</file>
+            <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/JavaMailUtil/java.java</file>
             <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/gui/AjoutCommentaireController.java</file>
-            <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/gui/AjoutCategorie.fxml</file>
             <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/service/BlogService.java</file>
-            <file>file:/C:/Users/ThinkPad/Documents/NetBeansProjects/GestionDeBlog/src/gui/AjoutCommentaire.fxml</file>
         </group>
     </open-files>
 </project-private>

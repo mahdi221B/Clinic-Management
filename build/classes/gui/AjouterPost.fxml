@@ -5,62 +5,92 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="338.0" prefWidth="507.0" stylesheets="@../../../../../Desktop/GestionEvent/src/outils/newCascadeStyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterPostController">
+<AnchorPane id="AnchorPane" prefHeight="596.0" prefWidth="903.0" stylesheets="@../../../../../Desktop/GestionEvent/src/outils/newCascadeStyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterPostController">
    <children>
-      <VBox layoutX="27.0" layoutY="36.0" prefHeight="200.0" prefWidth="134.0">
+      <VBox layoutX="27.0" layoutY="131.0" prefHeight="200.0" prefWidth="134.0">
          <children>
             <Label styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="Sujet_Post">
                <padding>
                   <Insets bottom="30.0" />
-               </padding></Label>
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="35.0" />
+               </VBox.margin></Label>
             <Label prefHeight="21.0" prefWidth="149.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="Description_Post">
                <padding>
-                  <Insets bottom="30.0" />
-               </padding></Label>
+                  <Insets bottom="50.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin></Label>
             <Label styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="Date_Post">
                <padding>
-                  <Insets bottom="30.0" />
-               </padding></Label>
+                  <Insets bottom="50.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin></Label>
             <Label styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="Review_Post">
                <padding>
-                  <Insets bottom="30.0" />
-               </padding></Label>
+                  <Insets bottom="50.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin></Label>
             <Label styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="User_Id_Post">
                <padding>
                   <Insets bottom="30.0" />
                </padding></Label>
          </children>
       </VBox>
-      <VBox layoutX="203.0" layoutY="21.0" prefHeight="265.0" prefWidth="170.0">
+      <VBox layoutX="203.0" layoutY="128.0" prefHeight="265.0" prefWidth="170.0">
          <children>
             <TextField fx:id="tfSujet" prefHeight="31.0" prefWidth="148.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css">
                <VBox.margin>
                   <Insets bottom="13.0" />
                </VBox.margin></TextField>
+            <Label fx:id="warning" prefHeight="21.0" prefWidth="176.0" />
             <Label fx:id="warning" prefHeight="21.0" prefWidth="172.0" />
             <TextField fx:id="tfDescription" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css">
                <VBox.margin>
                   <Insets bottom="13.0" />
                </VBox.margin></TextField>
+            <Label fx:id="warning1" prefHeight="21.0" prefWidth="171.0" />
             <Label fx:id="warning" />
             <DatePicker fx:id="tfDate" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css">
                <VBox.margin>
-                  <Insets bottom="13.0" />
+                  <Insets bottom="30.0" />
                </VBox.margin></DatePicker>
+            <Label fx:id="warning3" prefHeight="21.0" prefWidth="213.0" />
             <TextField fx:id="tfReview" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css">
                <VBox.margin>
-                  <Insets bottom="13.0" />
+                  <Insets bottom="30.0" />
                </VBox.margin></TextField>
+            <Label fx:id="warning4" prefHeight="21.0" prefWidth="169.0" text=" " />
             <TextField fx:id="tfUser_Id" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css">
                <VBox.margin>
                   <Insets bottom="13.0" />
                </VBox.margin></TextField>
+            <Label fx:id="warning5" prefHeight="21.0" prefWidth="146.0" />
          </children>
       </VBox>
-      <Button layoutX="23.0" layoutY="287.0" mnemonicParsing="false" onAction="#AjouterPost" prefHeight="31.0" prefWidth="134.0" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Ajouter" textFill="RED" />
-      <Button layoutX="208.0" layoutY="287.0" mnemonicParsing="false" onMouseClicked="#Exit" prefHeight="31.0" prefWidth="126.0" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Exit" textFill="RED" />
+      <Button layoutX="14.0" layoutY="528.0" mnemonicParsing="false" onAction="#AjouterPost" prefHeight="31.0" prefWidth="134.0" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Ajouter" textFill="RED" />
+      <Button layoutX="208.0" layoutY="524.0" mnemonicParsing="false" onMouseClicked="#Exit" prefHeight="31.0" prefWidth="126.0" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Exit" textFill="RED" />
+      <Label layoutX="334.0" layoutY="13.0" prefHeight="46.0" prefWidth="296.0" text="Ajouter Post">
+         <font>
+            <Font name="System Bold" size="31.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="336.0" fitWidth="539.0" layoutX="381.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/guest-posting-service-img-1024x592-1.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

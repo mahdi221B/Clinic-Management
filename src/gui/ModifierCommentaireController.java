@@ -20,6 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
 import service.CategorieService;
 import service.CommentaireService;
 
@@ -62,7 +63,9 @@ public class ModifierCommentaireController implements Initializable {
         
        CommentaireService s = new CommentaireService();
        s.update(new Commentaire(IDComm,tfText_Comm.getText(),Integer.parseInt(tfUser_Comm.getText()),Integer.parseInt(tfId_Comm.getText())));
-       JOptionPane.showMessageDialog(null,"Commentaire modifiée");
+       Notifications.create().title("Alert")
+                    .text("Commentaire modifié")
+                    .darkStyle().showInformation();
        Parent root = FXMLLoader.load(getClass().getResource("../gui/DetailCommentaire.fxml"));
 
        Scene rcScene = new Scene(root);

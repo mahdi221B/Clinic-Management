@@ -4,69 +4,80 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ModifierPostController">
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ModifierPostController">
    <children>
-      <VBox layoutX="37.0" layoutY="46.0" prefHeight="200.0" prefWidth="134.0">
+      <VBox layoutX="37.0" layoutY="114.0" prefHeight="200.0" prefWidth="134.0">
          <children>
             <Label styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="Sujet_Post">
                <padding>
                   <Insets bottom="20.0" />
-               </padding></Label>
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin></Label>
             <Label prefHeight="21.0" prefWidth="149.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="Description_Post">
                <padding>
                   <Insets bottom="20.0" />
-               </padding></Label>
-            <Label styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="Date_Post">
-               <padding>
-                  <Insets bottom="20.0" />
-               </padding></Label>
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin></Label>
             <Label styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="Review_Post">
                <padding>
                   <Insets bottom="20.0" />
-               </padding></Label>
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin></Label>
             <Label styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="User_Id_Post">
                <padding>
                   <Insets bottom="20.0" />
                </padding></Label>
          </children>
       </VBox>
-      <VBox layoutX="310.0" layoutY="31.0" prefHeight="200.0" prefWidth="100.0">
+      <VBox layoutX="225.0" layoutY="107.0" prefHeight="200.0" prefWidth="100.0">
          <children>
             <TextField fx:id="tfSujet" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css">
                <VBox.margin>
-                  <Insets bottom="9.0" />
+                  <Insets bottom="20.0" />
                </VBox.margin></TextField>
             <TextField fx:id="tfDescription" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css">
                <padding>
                   <Insets bottom="15.0" />
                </padding>
                <VBox.margin>
-                  <Insets bottom="9.0" />
-               </VBox.margin></TextField>
-            <TextField fx:id="tfDate" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css">
-               <padding>
-                  <Insets bottom="15.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets bottom="9.0" />
+                  <Insets bottom="20.0" />
                </VBox.margin></TextField>
             <TextField fx:id="tfReview" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css">
                <padding>
                   <Insets bottom="15.0" />
                </padding>
                <VBox.margin>
-                  <Insets bottom="9.0" />
+                  <Insets bottom="20.0" />
                </VBox.margin></TextField>
             <TextField fx:id="tfUser_Id" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css">
                <VBox.margin>
-                  <Insets bottom="9.0" />
+                  <Insets bottom="20.0" />
                </VBox.margin></TextField>
          </children>
       </VBox>
-      <Button layoutX="187.0" layoutY="260.0" mnemonicParsing="false" onAction="#ModifierPost" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Modifier" />
-      <Button layoutX="310.0" layoutY="260.0" mnemonicParsing="false" onMouseClicked="#Exit" prefHeight="31.0" prefWidth="84.0" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Exit" />
+      <Button layoutX="37.0" layoutY="353.0" mnemonicParsing="false" onAction="#ModifierPost" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Modifier" />
+      <Button layoutX="197.0" layoutY="354.0" mnemonicParsing="false" onMouseClicked="#Exit" prefHeight="31.0" prefWidth="84.0" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Exit" />
+      <Label layoutX="239.0" layoutY="28.0" prefHeight="46.0" prefWidth="296.0" text="Modifier Post">
+         <font>
+            <Font name="System Bold" size="31.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="334.0" fitWidth="564.0" layoutX="351.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/guest-posting-service-img-1024x592-1.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

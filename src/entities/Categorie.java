@@ -23,6 +23,12 @@ public class Categorie {
         this.Id_Categorie = Id_Categorie;
     }
 
+    public Categorie(int Id_Categorie, String Text_Categorie, int Id_Createur_Categorie) {
+        this.Id_Categorie = Id_Categorie;
+        this.Text_Categorie = Text_Categorie;
+        this.Id_Createur_Categorie = Id_Createur_Categorie;
+    }
+
     
     public Categorie(int Id_Categorie, String Text_Categorie, String Date_Creation_Categorie, int Id_Createur_Categorie) {
         this.Id_Categorie = Id_Categorie;

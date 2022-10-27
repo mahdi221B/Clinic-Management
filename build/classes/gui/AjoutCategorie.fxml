@@ -1,20 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="310.0" prefWidth="526.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutCategorieController">
+<AnchorPane id="AnchorPane" prefHeight="525.0" prefWidth="946.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutCategorieController">
    <children>
-      <Label layoutX="52.0" layoutY="65.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="Text_Categorie" />
-      <Label layoutX="52.0" layoutY="106.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="Date_Creation_Categorie" />
-      <TextField fx:id="tfText" layoutX="268.0" layoutY="60.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" />
-      <TextField fx:id="tfId_Crea" layoutX="268.0" layoutY="143.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" />
-      <Label layoutX="52.0" layoutY="148.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="Id_Createur_Categorie" />
-      <Button layoutX="268.0" layoutY="228.0" mnemonicParsing="false" onAction="#AjouterCategorie" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Ajouter" />
-      <Button layoutX="358.0" layoutY="228.0" mnemonicParsing="false" onMouseClicked="#Exit" prefHeight="31.0" prefWidth="78.0" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Exit" />
-      <DatePicker fx:id="tfDate_c" layoutX="268.0" layoutY="101.0" prefHeight="31.0" prefWidth="187.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" />
+      <Label layoutX="56.0" layoutY="170.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="Text_Categorie">
+         <padding>
+            <Insets bottom="20.0" />
+         </padding></Label>
+      <Label layoutX="56.0" layoutY="230.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="Date_Creation_Categorie">
+         <padding>
+            <Insets bottom="20.0" />
+         </padding></Label>
+      <TextField fx:id="tfText" layoutX="272.0" layoutY="165.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" />
+      <TextField fx:id="tfId_Crea" layoutX="273.0" layoutY="294.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" />
+      <Label layoutX="56.0" layoutY="293.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" text="Id_Createur_Categorie">
+         <padding>
+            <Insets bottom="20.0" />
+         </padding></Label>
+      <Button layoutX="273.0" layoutY="393.0" mnemonicParsing="false" onAction="#AjouterCategorie" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Ajouter" />
+      <DatePicker fx:id="tfDate_c" layoutX="272.0" layoutY="229.0" prefHeight="31.0" prefWidth="187.0" styleClass="UpperMenu" stylesheets="@newCascadeStyleSheet.css" />
+      <Button layoutX="367.0" layoutY="393.0" mnemonicParsing="false" onMouseClicked="#exit" prefHeight="31.0" prefWidth="85.0" styleClass="btn" stylesheets="@newCascadeStyleSheet.css" text="Exit" />
+      <Label layoutX="179.0" layoutY="24.0" prefHeight="46.0" prefWidth="296.0" text="Ajouter Categorie">
+         <font>
+            <Font name="System Bold" size="31.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="375.0" fitWidth="469.0" layoutX="506.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Categorie.GIF" />
+         </image>
+      </ImageView>
+      <Label fx:id="warning" layoutX="284.0" layoutY="201.0" prefHeight="21.0" prefWidth="164.0" text=" " />
+      <Label fx:id="warning2" layoutX="282.0" layoutY="266.0" prefHeight="21.0" prefWidth="164.0" text=" " />
+      <Label fx:id="warning3" layoutX="288.0" layoutY="333.0" prefHeight="21.0" prefWidth="157.0" text=" " />
    </children>
 </AnchorPane>

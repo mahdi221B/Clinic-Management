@@ -101,6 +101,23 @@ public void delete(Blog s){
         }
         return listpost ;  
         }
+    
+    
+    public int TotalPOST() {
+    
+    int n = 0;
+    try {
+        String req = "select * from post";
+        Statement st =cnx.createStatement();
+        ResultSet rs = st.executeQuery(req);
+        while (rs.next()) {
+            n = n+1;
+        }
+    } catch(SQLException ex) {
+        System.out.println(ex);
+    }
+    return n;
+}
     }
     
     
