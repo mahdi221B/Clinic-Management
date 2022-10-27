@@ -25,7 +25,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
 import outils.TypeSponsoring;
+import services.CategorieService;
 import services.EvenementService;
 
 /**
@@ -54,16 +56,22 @@ public class FmodifierController implements Initializable {
     
     private int ID;
     @FXML
-    private DatePicker DatePickerDebut;
+    private TextField DatePickerDebut;
     @FXML
-    private DatePicker DatePickerFin;
+    private TextField DatePickerFin;
     @FXML
     private Label warning;
+    @FXML
+    private ComboBox<String> cbox;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        CategorieService cs = new CategorieService();
+        ObservableList<String> list = FXCollections. observableArrayList(cs.getTitleAll());
+        cbox.setItems(list); 
+        cbox.getSelectionModel().selectFirst();
     }  
     
     public void init(Evenement E) {
@@ -71,12 +79,12 @@ public class FmodifierController implements Initializable {
         tfTitre.setText(E.getTitre());
         tfDesc.setText(E.getDescription());
         tfLieu.setText(E.getLieu());
+        DatePickerDebut.setText(E.getDate_debut());
+        DatePickerFin.setText(E.getDate_fin());
         tfOrga.setText(E.getNom_organisateur());
         tfEmail.setText(E.getEmail_organisateu());
         tfNum.setText(Integer.toString(E.getPhone_organisateur()));
         tfMont.setText(Integer.toString(E.getMontant_recolte()));
-        //DatePickerDebut.
-       // DatePickerFin.setText(E.getDate_fin());
     }  
     
 
@@ -92,6 +100,7 @@ public class FmodifierController implements Initializable {
 
     @FXML
     private void Modifierevent(ActionEvent event) throws IOException {
+        CategorieService cs = new CategorieService();
         if(tfTitre.getText().isEmpty() || tfDesc.getText().isEmpty() || tfLieu.getText().isEmpty() || tfOrga.getText().isEmpty() || tfEmail.getText().isEmpty()|| tfNum.getText().isEmpty()|| tfMont.getText().isEmpty()  )
     {warning.setText("Remplissez tous les champs");
     }else{
@@ -100,8 +109,10 @@ public class FmodifierController implements Initializable {
             try {
             System.out.println(Integer.parseInt(tfNum.getText()));
                 EvenementService C = new EvenementService();
-                C.update(new Evenement(ID,Integer.parseInt(tfNum.getText()),Integer.parseInt(tfMont.getText()),tfTitre.getText(),tfDesc.getText(),tfLieu.getText(),tfOrga.getText(),tfEmail.getText(),DatePickerDebut.getValue().toString(),DatePickerFin.getValue().toString()));
-                JOptionPane.showMessageDialog(null,"Evenement modifiée");
+                C.update(new Evenement(ID,Integer.parseInt(tfNum.getText()),Integer.parseInt(tfMont.getText()),tfTitre.getText(),tfDesc.getText(),tfLieu.getText(),tfOrga.getText(),tfEmail.getText(),DatePickerDebut.getText(),DatePickerFin.getText(),cs.getMdp(cbox.getValue())));
+                Notifications.create().title("NOTIFICATIONS")
+                    .text("Evenement ajoutée avec succés")
+                    .showInformation();
 
                 Parent root = FXMLLoader.load(getClass().getResource("../gui/ModiferEvent.fxml")) ;
                 Scene rcScene= new Scene(root);
@@ -110,10 +121,10 @@ public class FmodifierController implements Initializable {
                 window.setScene(rcScene);
                 window.show();
        }catch(Exception e){
-                 warning.setText("Doit étre de type entier");
+                 warning.setText("Numéro doit étre de type entier");
                 }
             }catch(Exception e){
-         warning.setText("Doit étre de type entier");
+         warning.setText("Montant doit étre de type entier");
         }
         }
     }

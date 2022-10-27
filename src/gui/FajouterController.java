@@ -5,9 +5,13 @@
 package gui;
 
 import entites.Evenement;
+import entites.Categorie;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,13 +19,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
-import outils.TypeSponsoring;
+import org.controlsfx.control.Notifications;
+import services.CategorieService;
 import services.EvenementService;
 
 /**
@@ -51,17 +58,21 @@ public class FajouterController implements Initializable {
     private DatePicker DatePickerFin;
 
 
-    private TypeSponsoring ts = null;
     @FXML
     private Label warning;
+    @FXML
+    private ComboBox<String> cbox;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        /*ObservableList<String> list = FXCollections. observableArrayList(ts.A.toString(), ts.B.toString(),ts.C.toString());
-        comb.setItems(list);*/
+        CategorieService cs = new CategorieService();
+        ObservableList<String> list = FXCollections. observableArrayList(cs.getTitleAll());
+        cbox.setItems(list); 
+
+        
     }    
     
      @FXML
@@ -76,6 +87,7 @@ public class FajouterController implements Initializable {
 
     @FXML
     private void Ajouterevent(ActionEvent event) throws IOException  {
+        CategorieService cs = new CategorieService();
         if(tfTitre.getText().isEmpty() || tfDesc.getText().isEmpty() || tfLieu.getText().isEmpty() || tfOrga.getText().isEmpty() || tfEmail.getText().isEmpty()|| tfNum.getText().isEmpty()|| tfMont.getText().isEmpty()  )
     {warning.setText("Remplissez tous les champs");
     }else{
@@ -85,8 +97,10 @@ public class FajouterController implements Initializable {
             System.out.println(Integer.parseInt(tfNum.getText()));
                 EvenementService s = new EvenementService();
 
-                s.add(new Evenement(Integer.parseInt(tfNum.getText()),Integer.parseInt(tfMont.getText()),tfTitre.getText(),tfDesc.getText(),tfLieu.getText(),tfOrga.getText(),tfEmail.getText(),DatePickerDebut.getValue().toString(),DatePickerFin.getValue().toString()));
-                JOptionPane.showMessageDialog(null,"Event ajouter avec succés");
+                s.add(new Evenement(Integer.parseInt(tfNum.getText()),Integer.parseInt(tfMont.getText()),tfTitre.getText(),tfDesc.getText(),tfLieu.getText(),tfOrga.getText(),tfEmail.getText(),DatePickerDebut.getValue().toString(),DatePickerFin.getValue().toString(),cs.getMdp(cbox.getValue())));
+                Notifications.create().title("NOTIFICATIONS")
+                    .text("Evenement ajoutée avec succés")
+                    .showInformation();
 
                 Parent root = FXMLLoader.load(getClass().getResource("../gui/ModiferEvent.fxml")) ;
                 Scene rcScene= new Scene(root);
@@ -95,10 +109,10 @@ public class FajouterController implements Initializable {
                 window.setScene(rcScene);
                 window.show();
             }catch(Exception e){
-                 warning.setText("Doit étre de type entier");
+                 warning.setText("Numéro doit étre de type entier");
                 }
             }catch(Exception e){
-         warning.setText("Doit étre de type entier");
+         warning.setText("Montant doit étre de type entier");
         }
         }
     }

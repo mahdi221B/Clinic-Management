@@ -31,6 +31,14 @@ public class Sponsor {
         this.ts = ts;
     }
     
+     public Sponsor(int id_sponsor,int phone_societe, int montant_donnee, String nom_societe, String email_societe) {
+        this.id_sponsor = id_sponsor;
+        this.phone_societe = phone_societe;
+        this.montant_donnee = montant_donnee;
+        this.nom_societe = nom_societe;
+        this.email_societe = email_societe;
+    }
+    
     public Sponsor(int id_sponsor, int phone_societe, int montant_donnee, String nom_societe, String email_societe, String ts) {
         this.id_sponsor = id_sponsor;
         this.phone_societe = phone_societe;

@@ -22,7 +22,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
 import services.SponsorService;
 
 /**
@@ -58,9 +58,9 @@ public class ListSponsorController implements Initializable {
         SponsorService ss = new SponsorService();
         CNom.setCellValueFactory(new PropertyValueFactory<Sponsor, String>("nom_societe"));
         CMail.setCellValueFactory(new PropertyValueFactory<Sponsor, String>("email_societe"));
+        CType.setCellValueFactory(new PropertyValueFactory<Sponsor, String>("type_sponsoring"));
         CNumero.setCellValueFactory(new PropertyValueFactory<Sponsor, Integer>("phone_societe"));
         CMontant.setCellValueFactory(new PropertyValueFactory<Sponsor, Integer>("montant_donnee"));
-        CType.setCellValueFactory(new PropertyValueFactory<Sponsor, String>("type_sponsoring"));
         ObservableList<Sponsor> list = ss.getAll();
         TSponsor.setItems(list);
     }    
@@ -69,15 +69,11 @@ public class ListSponsorController implements Initializable {
     @FXML
     private void Modifier(ActionEvent event) throws IOException {
      try {
-        Sponsor S = TSponsor.getSelectionModel().getSelectedItem();//Avoir les donnes de formateur sélectionnée
-        //Change the scene
+        Sponsor S = TSponsor.getSelectionModel().getSelectedItem();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/FmodifierSponsor.fxml"));
         Parent root =loader.load();
-        //Accessing the destined controller
         FmodifierSponsorController dpc = loader.getController();
         dpc.init(S);
-        //Initializer les donnees de formateur
-        
     	Scene rcScene= new Scene(root);
     	
     	Stage window= (Stage)((Node)event.getSource()) .getScene().getWindow();
@@ -95,7 +91,9 @@ public class ListSponsorController implements Initializable {
         Sponsor S = TSponsor.getSelectionModel().getSelectedItem();
         SponsorService ss = new SponsorService();
         ss.delete(new Sponsor(S.getId_sponsor()));
-        JOptionPane.showMessageDialog(null,"Sponsor supprimer");
+        Notifications.create().title("NOTIFICATIONS")
+                    .text("Sponsor supprimer avec succès")
+                    .showInformation();
 
         Parent root = FXMLLoader.load(getClass().getResource("../gui/ListSponsor.fxml")) ;
         Scene rcScene= new Scene(root);
@@ -120,6 +118,19 @@ public class ListSponsorController implements Initializable {
             }catch(IOException ex) {
             }  
     }
+    
+
+    
+    @FXML
+    private void Exit(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../gui/ModiferEvent.fxml")) ;
+    	Scene rcScene= new Scene(root);
+    	
+    	Stage window= (Stage)((Node)event.getSource()) .getScene().getWindow();
+    	window.setScene(rcScene);
+    	window.show();
+    }
+    
     
     
 }

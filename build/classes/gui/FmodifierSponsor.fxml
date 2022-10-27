@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -63,7 +62,7 @@
                   <Insets bottom="17.0" />
                </VBox.margin>
             </TextField>
-            <ComboBox fx:id="cboxdata" onAction="#select" prefHeight="25.0" prefWidth="166.0" />
+            <TextField fx:id="cboxdata" prefHeight="25.0" prefWidth="174.0" styleClass="Inputs" stylesheets="@../outils/newCascadeStyleSheet.css" />
          </children>
       </VBox>
       <Label fx:id="warning" alignment="CENTER" layoutX="56.0" layoutY="245.0" prefHeight="17.0" prefWidth="260.0" textAlignment="CENTER" textFill="RED" />

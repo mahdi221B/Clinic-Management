@@ -5,7 +5,6 @@
 package gui;
 
 import entites.Categorie;
-import entites.Evenement;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,9 +19,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
 import services.CategorieService;
-import services.EvenementService;
 
 /**
  * FXML Controller class
@@ -65,7 +63,10 @@ public class FmodifierCategorieController implements Initializable {
     }else{
         CategorieService cs = new CategorieService();
         cs.update(new Categorie(ID,tfNomCat.getText()));
-        JOptionPane.showMessageDialog(null,"Categorie modifiée");
+        Notifications.create().title("NOTIFICATIONS")
+                    .text("Catégorie modifiée avec succès")
+                    .showInformation();
+        
         
         Parent root = FXMLLoader.load(getClass().getResource("../gui/ListCategorie.fxml")) ;
     	Scene rcScene= new Scene(root);

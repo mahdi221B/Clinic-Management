@@ -4,7 +4,6 @@
  */
 package gui;
 
-import entites.Evenement;
 import entites.Sponsor;
 import java.io.IOException;
 import java.net.URL;
@@ -23,9 +22,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
-import outils.TypeSponsoring;
-import services.EvenementService;
+import org.controlsfx.control.Notifications;
 import services.SponsorService;
 
 /**
@@ -46,7 +43,6 @@ public class FajouterSponsorController implements Initializable {
     
     @FXML
     private ComboBox cboxdata;
-    private TypeSponsoring ts = null;
     @FXML
     private Label warning;
 
@@ -56,7 +52,7 @@ public class FajouterSponsorController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ObservableList<String> list = FXCollections. observableArrayList(ts.Workshop.toString(), ts.Sportifs.toString(),ts.Compétence.toString());
+        ObservableList<String> list = FXCollections. observableArrayList("Workshop", "Sportifs","Compétence");
         cboxdata.setItems(list);
     }    
 
@@ -69,20 +65,25 @@ public class FajouterSponsorController implements Initializable {
             System.out.println(Integer.parseInt(tfMontant.getText()));
             try {
             System.out.println(Integer.parseInt(tfNumero.getText()));
+            
+           // if(tfMail.getText().matches("w{3}@")){
             SponsorService s = new SponsorService();
             s.add(new Sponsor(Integer.parseInt(tfNumero.getText()),Integer.parseInt(tfMontant.getText()),tfNom.getText(),tfMail.getText(),cboxdata.getValue().toString()));
-            JOptionPane.showMessageDialog(null,"Sponsor ajouté avec succès");
+            Notifications.create().title("NOTIFICATIONS")
+                    .text("Sponsor a avec succès")
+                    .showInformation();
 
             Parent root = FXMLLoader.load(getClass().getResource("../gui/ListSponsor.fxml")) ;
             Scene rcScene= new Scene(root);	
             Stage window= (Stage)((Node)event.getSource()) .getScene().getWindow();
             window.setScene(rcScene);
             window.show();
+           // }warning.setText("Verfie votre e-mail");
                 }catch(Exception e){
-                 warning.setText("Doit étre de type entier");
+                 warning.setText("Numero doit étre de type entier");
                 }
             }catch(Exception e){
-         warning.setText("Doit étre de type entier");
+         warning.setText("Montant doit étre de type entier");
         }
         }
     }

@@ -21,12 +21,9 @@ public class MainProg extends Application {
     public void start(Stage primaryStage) throws IOException {
        FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/ModiferEvent.fxml"));
        Parent root =loader.load();
-       //Acteur
        Scene scene = new Scene(root);
-       //stage
        primaryStage.setScene(scene);
        primaryStage.setTitle("PIDV");
-       //rideau
        primaryStage.show();
     }
 

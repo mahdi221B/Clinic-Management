@@ -5,17 +5,11 @@
 package services;
 
 import Interfaces.IService;
-import entites.Categorie;
 import outils.MyDB;
 import entites.Sponsor;
-
 import java.sql.Connection;
-
 import java.sql.SQLException;
-
 import java.sql.Statement;
-
-import java.util.ArrayList;
 import java.sql.ResultSet;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -77,11 +71,15 @@ public class SponsorService implements IService<Sponsor> {
                 int numero=rs.getInt("Phone_societe");
                 int montant=rs.getInt("montant_donnee");
                 String type=rs.getString("type_sponsoring"); 
-                listSponsor.add(new Sponsor(id,numero,montant,nom,mail,type.toString()));
+                listSponsor.add(new Sponsor(id,numero,montant,nom,mail,type));
+                System.out.println(listSponsor.getClass());
+
             }
         } catch (SQLException ex) {
             System.out.println(ex);
         }
+        System.out.println(listSponsor);
         return listSponsor ;  
         }
+    
 }

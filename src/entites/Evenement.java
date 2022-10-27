@@ -11,13 +11,25 @@ import java.util.Objects;
  * @author mahdi
  */
 public class Evenement {
-    private int id_evenement,phone_organisateur, montant_recolte;
+    private int id_evenement,id_categorie,phone_organisateur, montant_recolte;
     private String titre, description, lieu, nom_organisateur, email_organisateu;
     private String date_debut,date_fin;
+    private String categorie;
 
     public Evenement() {
     }
 
+    public Evenement(String titre) {
+        this.titre = titre;
+    }
+    
+    public Evenement(int montant_recolte ,String titre) {
+        this.titre = titre;
+        this.montant_recolte = montant_recolte;
+
+    }
+
+    
     
     public Evenement(int phone_organisateur, int montant_recolte, String titre, String description, String lieu, String nom_organisateur, String email_organisateu, String date_debut, String date_fin) {
         this.phone_organisateur = phone_organisateur;
@@ -30,10 +42,64 @@ public class Evenement {
         this.date_debut = date_debut;
         this.date_fin = date_fin;
     }
+    
+     public Evenement(int id_evenement, int phone_organisateur, int montant_recolte, String titre, String description, String lieu, String nom_organisateur, String email_organisateu, String date_debut, String date_fin, int id_categorie) {
+        this.id_evenement = id_evenement;
+        this.phone_organisateur = phone_organisateur;
+        this.montant_recolte = montant_recolte;
+        this.titre = titre;
+        this.description = description;
+        this.lieu = lieu;
+        this.nom_organisateur = nom_organisateur;
+        this.email_organisateu = email_organisateu;
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
+        this.id_categorie = id_categorie;
+    }
+     
+     
+
+    public int getId_categorie() {
+        return id_categorie;
+    }
+
+    public void setId_categorie(int id_categorie) {
+        this.id_categorie = id_categorie;
+    }
+    
+     public Evenement(int phone_organisateur, int montant_recolte, String titre, String description, String lieu, String nom_organisateur, String email_organisateu, String date_debut, String date_fin,int id_categorie) {
+        this.phone_organisateur = phone_organisateur;
+        this.montant_recolte = montant_recolte;
+        this.titre = titre;
+        this.description = description;
+        this.lieu = lieu;
+        this.nom_organisateur = nom_organisateur;
+        this.email_organisateu = email_organisateu;
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
+        this.id_categorie = id_categorie;
+    }
+    
+    public Evenement(int id_evenement,int phone_organisateur, int montant_recolte, String titre, String description, String lieu, String nom_organisateur, String email_organisateu, String date_debut, String date_fin,String categorie) {
+        this.id_evenement = id_evenement;
+        this.phone_organisateur = phone_organisateur;
+        this.montant_recolte = montant_recolte;
+        this.titre = titre;
+        this.description = description;
+        this.lieu = lieu;
+        this.nom_organisateur = nom_organisateur;
+        this.email_organisateu = email_organisateu;
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
+        this.categorie = categorie;
+    }
+    
+
 
     public Evenement(int id_evenement) {
         this.id_evenement = id_evenement;
     }
+
     public Evenement(int id_evenement, int phone_organisateur, int montant_recolte, String titre, String description, String lieu, String nom_organisateur, String email_organisateu, String date_debut, String date_fin) {
         this.id_evenement = id_evenement;
         this.phone_organisateur = phone_organisateur;
@@ -130,7 +196,7 @@ public class Evenement {
 
     @Override
     public String toString() {
-        return "Evenement{" + "id_evenement=" + id_evenement + ", phone_organisateur=" + phone_organisateur + ", montant_recolte=" + montant_recolte + ", titre=" + titre + ", description=" + description + ", lieu=" + lieu + ", nom_organisateur=" + nom_organisateur + ", email_organisateu=" + email_organisateu + ", date_debut=" + date_debut + ", date_fin=" + date_fin + '}';
+        return "Evenement{" + "id_evenement=" + id_evenement + ", phone_organisateur=" + phone_organisateur + ", montant_recolte=" + montant_recolte + ", titre=" + titre + ", description=" + description + ", lieu=" + lieu + ", nom_organisateur=" + nom_organisateur + ", email_organisateu=" + email_organisateu + ", date_debut=" + date_debut + ", date_fin=" + date_fin + ", categorie=" + categorie + '}';
     }
 
     @Override
@@ -149,6 +215,15 @@ public class Evenement {
         return hash;
     }
 
+    public String getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
+    }
+
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

@@ -17,6 +17,7 @@
       <Button layoutX="505.0" layoutY="246.0" mnemonicParsing="false" onAction="#Delete" styleClass="btn" stylesheets="@../outils/newCascadeStyleSheet.css" text="Supprimer" />
       <Button layoutX="513.0" layoutY="88.0" mnemonicParsing="false" onAction="#Ajouter" styleClass="btn" stylesheets="@../outils/newCascadeStyleSheet.css" text="Ajouter" />
       <Label fx:id="warning" layoutX="227.0" layoutY="292.0" prefHeight="17.0" prefWidth="274.0" textFill="RED" />
+      <Button layoutX="347.0" layoutY="336.0" mnemonicParsing="false" onMouseClicked="#Exit" styleClass="btn" stylesheets="@../outils/newCascadeStyleSheet.css" text="Exit" />
    
    </children>
 </AnchorPane>

@@ -4,13 +4,10 @@
  */
 package gui;
 
-import entites.Evenement;
 import entites.Sponsor;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,14 +15,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
 import outils.TypeSponsoring;
-import services.EvenementService;
 import services.SponsorService;
 
 /**
@@ -44,12 +39,10 @@ public class FmodifierSponsorController implements Initializable {
     @FXML
     private TextField tfMontant;
    
-    private TypeSponsoring ts = null;
     private int ID;
-    private String TS;
     
     @FXML
-    private ComboBox cboxdata;
+    private TextField cboxdata;
     @FXML
     private Label warning;
 
@@ -59,14 +52,15 @@ public class FmodifierSponsorController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ObservableList<String> list = FXCollections. observableArrayList(ts.Workshop.toString(), ts.Sportifs.toString(),ts.Compétence.toString());
-        cboxdata.setItems(list);
+        /*ObservableList<String> list = FXCollections. observableArrayList(ts.Workshop.toString(), ts.Sportifs.toString(),ts.Compétence.toString());
+        cboxdata.setItems(list);*/
     }    
     
     public void init(Sponsor E) {
         ID = E.getId_sponsor();
         tfNom.setText(E.getNom_societe());
         tfMail.setText(E.getEmail_societe());
+        cboxdata.setText(E.getTs());
         tfNum.setText(Integer.toString(E.getPhone_societe()));
         tfMontant.setText(Integer.toString(E.getMontant_donnee()));
     }  
@@ -74,7 +68,7 @@ public class FmodifierSponsorController implements Initializable {
 
     @FXML
     private void Modifiersponsor(ActionEvent event) throws IOException {
-        if(tfNom.getText().isEmpty() || tfMail.getText().isEmpty() || tfNum.getText().isEmpty() || tfMontant.getText().isEmpty() || cboxdata.getSelectionModel().getSelectedIndex()==-1)
+        if(tfNom.getText().isEmpty() || tfMail.getText().isEmpty() || tfNum.getText().isEmpty() || tfMontant.getText().isEmpty() || cboxdata.getText().isEmpty())
     {warning.setText("Remplissez tous les champs");
     }else{
         try {
@@ -82,18 +76,20 @@ public class FmodifierSponsorController implements Initializable {
             try {
             System.out.println(Integer.parseInt(tfNum.getText()));
         SponsorService C = new SponsorService();
-        C.update(new Sponsor(ID,Integer.parseInt(tfNum.getText()),Integer.parseInt(tfMontant.getText()),tfNom.getText(),tfMail.getText(),cboxdata.getValue().toString()));
-        JOptionPane.showMessageDialog(null,"Sponsor modifié avec succès");
+        C.update(new Sponsor(ID,Integer.parseInt(tfNum.getText()),Integer.parseInt(tfMontant.getText()),tfNom.getText(),tfMail.getText(),cboxdata.getText()));
+        Notifications.create().title("NOTIFICATIONS")
+                    .text("Sponsor modifiée avec succès")
+                    .showInformation();
         Parent root = FXMLLoader.load(getClass().getResource("../gui/ListSponsor.fxml")) ;
         Scene rcScene= new Scene(root);
-        Stage window= (Stage)((Node)event.getSource()) .getScene().getWindow();
+        Stage window= (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(rcScene);
         window.show();
         }catch(Exception e){
-                 warning.setText("Doit étre de type entier");
+                 warning.setText("Numero doit étre de type entier");
                 }
             }catch(Exception e){
-         warning.setText("Doit étre de type entier");
+         warning.setText("Montant doit étre de type entier");
         }
         }
     }
@@ -107,8 +103,5 @@ public class FmodifierSponsorController implements Initializable {
     window.show();
     }
 
-    @FXML
-    private void select(ActionEvent event) {
-    }
 
 }

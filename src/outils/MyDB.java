@@ -11,7 +11,7 @@ import java.sql.SQLException;
  *
  * @author mahdi
  */
-public class MyDB {String url="jdbc:mysql://localhost/gestionevent";
+public class MyDB {String url="jdbc:mysql://localhost/PI2022GC";
     String user="root";
     String password="";
     Connection cnx;

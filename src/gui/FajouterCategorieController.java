@@ -19,9 +19,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
 import services.CategorieService;
-import services.SponsorService;
 
 /**
  * FXML Controller class
@@ -52,7 +51,9 @@ public class FajouterCategorieController implements Initializable {
             CategorieService cs = new CategorieService();
             cs.add(new Categorie(tfNomCat.getText()));
 
-            JOptionPane.showMessageDialog(null,"Event ajouter avec succés");
+            Notifications.create().title("NOTIFICATIONS")
+                    .text("Catégorie ajouter avec succès")
+                    .showInformation();
 
             Parent root = FXMLLoader.load(getClass().getResource("../gui/ListCategorie.fxml")) ;
             Scene rcScene= new Scene(root);

@@ -13,13 +13,14 @@
             <TableColumn fx:id="CNom" prefWidth="116.33334350585938" text="Nom societé" />
             <TableColumn fx:id="CMail" prefWidth="187.66668701171875" text="E-mail" />
             <TableColumn fx:id="CNumero" minWidth="0.0" prefWidth="124.66668701171875" text="Téléphone" />
-            <TableColumn fx:id="CMontant" prefWidth="99.33331298828125" text="Montant Donné" />
-            <TableColumn fx:id="CType" minWidth="0.0" prefWidth="146.6666259765625" text="Type Sponsoring" />
+            <TableColumn fx:id="CMontant" prefWidth="104.0" text="Montant Donné" />
+            <TableColumn fx:id="CType" minWidth="0.0" prefWidth="143.0" text="Type Sponsoring" />
          </columns>
       </TableView>
-      <Button layoutX="385.0" layoutY="293.0" mnemonicParsing="false" onAction="#Modifier" styleClass="btn" stylesheets="@../outils/newCascadeStyleSheet.css" text="Modifier" />
+      <Button layoutX="258.0" layoutY="293.0" mnemonicParsing="false" onAction="#Modifier" styleClass="btn" stylesheets="@../outils/newCascadeStyleSheet.css" text="Modifier" />
       <Button layoutX="647.0" layoutY="293.0" mnemonicParsing="false" onAction="#Delete" styleClass="btn" stylesheets="@../outils/newCascadeStyleSheet.css" text="Supprimer" />
       <Button layoutX="119.0" layoutY="293.0" mnemonicParsing="false" onAction="#Ajouter" styleClass="btn" stylesheets="@../outils/newCascadeStyleSheet.css" text="Ajouter" />
       <Label fx:id="warning" layoutX="278.0" layoutY="272.0" prefHeight="17.0" prefWidth="274.0" textFill="RED" />
+      <Button layoutX="535.0" layoutY="293.0" mnemonicParsing="false" onAction="#Exit" onMouseClicked="#Exit" styleClass="btn" stylesheets="@../outils/newCascadeStyleSheet.css" text="Exit" />
    </children>
 </AnchorPane>

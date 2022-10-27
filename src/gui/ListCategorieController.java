@@ -20,9 +20,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
 import services.CategorieService;
 
 /**
@@ -34,8 +35,6 @@ public class ListCategorieController implements Initializable {
 
     @FXML
     private AnchorPane ListCategorie;
-   /* @FXML
-    private ComboBox<?> cboxdata;*/
     @FXML
     private TableView<Categorie> TCatego;
     @FXML
@@ -58,14 +57,11 @@ public class ListCategorieController implements Initializable {
     @FXML
     private void Modifier(ActionEvent event) throws IOException {
      try {
-        Categorie C = TCatego.getSelectionModel().getSelectedItem();//Avoir les donnes de formateur sélectionnée
-        //Change the scene
+        Categorie C = TCatego.getSelectionModel().getSelectedItem();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/FmodifierCategorie.fxml"));
         Parent root =loader.load();
-        //Accessing the destined controller
         FmodifierCategorieController dpc = loader.getController();
         dpc.init(C);
-        //Initializer les donnees de formateur
         
     	Scene rcScene= new Scene(root);
     	
@@ -84,9 +80,10 @@ public class ListCategorieController implements Initializable {
     Categorie C = TCatego.getSelectionModel().getSelectedItem();
     CategorieService cs = new CategorieService();
     cs.delete(new Categorie(C.getId_categorie()));
-    //PoPup
-    JOptionPane.showMessageDialog(null,"Categorie supprimer");
-    //changewindow
+    Notifications.create().title("NOTIFICATIONS")
+                    .text("Catégorie supprimer avec succès")
+                    .showInformation();
+    
     Parent root = FXMLLoader.load(getClass().getResource("../gui/ListCategorie.fxml")) ;
     Scene rcScene= new Scene(root);
     Stage window= (Stage)((Node)event.getSource()) .getScene().getWindow();
@@ -100,7 +97,6 @@ public class ListCategorieController implements Initializable {
     @FXML
     private void Ajouter(ActionEvent event) {
         try {
-            //Change the scene
             Parent root = FXMLLoader.load(getClass().getResource("../gui/FajouterCategorie.fxml")) ;
             Scene rcScene= new Scene(root);
             Stage window= (Stage)((Node)event.getSource()) .getScene().getWindow();
@@ -109,6 +105,16 @@ public class ListCategorieController implements Initializable {
             }catch(IOException ex) {
             
             }  
+    }
+
+    @FXML
+    private void Exit(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../gui/ModiferEvent.fxml")) ;
+    	Scene rcScene= new Scene(root);
+    	
+    	Stage window= (Stage)((Node)event.getSource()) .getScene().getWindow();
+    	window.setScene(rcScene);
+    	window.show();
     }
     
 }
