@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F2DFDF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutPatientController">
+   <children>
+      <TextField fx:id="tfnomprenomp" layoutX="226.0" layoutY="108.0" prefHeight="25.0" prefWidth="175.0" promptText="nom et prenom" />
+      <Button layoutX="273.0" layoutY="333.0" mnemonicParsing="false" onAction="#ajouter" text="Ajouter" textFill="#8c3333" />
+      <Button layoutX="447.0" layoutY="38.0" mnemonicParsing="false" onAction="#retour" text="Retour" textFill="#8c3333" />
+      <Pane prefHeight="400.0" prefWidth="168.0" style="-fx-background-color: #DD7E7E;" />
+      <TextField fx:id="dnp" layoutX="226.0" layoutY="147.0" prefHeight="25.0" prefWidth="175.0" promptText="date de naissance" />
+      <TextField fx:id="adrp" layoutX="226.0" layoutY="235.0" prefHeight="25.0" prefWidth="175.0" promptText="user@gmail.com" />
+      <Button layoutX="512.0" layoutY="38.0" mnemonicParsing="false" onAction="#homePage" text="Home" textFill="#8c3333" />
+      <TextField fx:id="sexep" layoutX="226.0" layoutY="188.0" prefHeight="25.0" prefWidth="175.0" promptText="sexe" />
+   </children>
+</AnchorPane>

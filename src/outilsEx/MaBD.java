@@ -5,7 +5,8 @@
  */
 package outilsEx;
 
-import com.sun.corba.se.pept.transport.Connection;
+
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -14,7 +15,7 @@ import java.sql.SQLException;
  * @author acila
  */
 public class MaBD {
-    String url ="jdbc:mysql://localhost/GestionExamen";
+    String url ="jdbc:mysql://localhost/gestionexamen";
     String user ="root";
     String passwd ="";
     Connection cnx;

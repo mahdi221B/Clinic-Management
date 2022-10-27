@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F2DFDF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ModifierMedecinController">
+   <children>
+      <TextField fx:id="tfnomprenomm" layoutX="226.0" layoutY="144.0" promptText="Nom et Prenom" />
+      <TextField fx:id="adrm" layoutX="224.0" layoutY="188.0" promptText="addresse" />
+      <Button layoutX="268.0" layoutY="262.0" mnemonicParsing="false" onAction="#modifier" text="Modifier" textFill="#8c3333" />
+      <Button layoutX="502.0" layoutY="40.0" mnemonicParsing="false" onAction="#exit" text="Home" textFill="#8c3333" />
+      <Button layoutX="434.0" layoutY="40.0" mnemonicParsing="false" onAction="#retour" text="Retour" textFill="#8c3333" />
+      <Pane prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: #DD7E7E;" />
+   </children>
+</AnchorPane>

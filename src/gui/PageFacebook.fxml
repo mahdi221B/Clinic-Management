@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="gui.PageFacebookController">
+   <children>
+      <Button layoutX="249.0" layoutY="13.0" mnemonicParsing="false" style="-fx-background-color: #45659C;" text="F A C E B O O K" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="548.0" layoutY="13.0" mnemonicParsing="false" onAction="#ret" prefHeight="25.0" prefWidth="26.0" style="-fx-background-color: #9C0E0E;" styleClass="round-border" stylesheets="@../outilsEx/lightMode.css" />
+      <WebView fx:id="webview" layoutY="50.0" prefHeight="351.0" prefWidth="600.0" />
+   </children>
+</AnchorPane>

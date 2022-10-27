@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #DD7E7E;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AffichagePatientController">
+   <children>
+      <TableView fx:id="tabpatient" layoutX="69.0" layoutY="118.0" prefHeight="165.0" prefWidth="449.0">
+        <columns>
+          <TableColumn fx:id="colnomprenomp" prefWidth="115.66665649414062" text="Nom et Prenom" />
+          <TableColumn fx:id="coldnp" prefWidth="114.33331298828125" text="Date de naissance" />
+            <TableColumn fx:id="colsexep" prefWidth="62.66668701171875" text="Sexe" />
+            <TableColumn fx:id="coladrp" prefWidth="154.3333740234375" text="Addresse mail" />
+        </columns>
+      </TableView>
+      <Button layoutX="263.0" layoutY="323.0" mnemonicParsing="false" onAction="#modifier" style="-fx-background-color: FFFFC7;" text="Modifier" textFill="#8c3333" />
+      <Button layoutX="408.0" layoutY="323.0" mnemonicParsing="false" onAction="#supprimer" style="-fx-background-color: #FFFFC7;" text="Supprimer" textFill="#8c3333" />
+      <Button layoutX="518.0" layoutY="23.0" mnemonicParsing="false" onAction="#exit" text="Retour" textFill="#8c3333" />
+      <Button layoutX="128.0" layoutY="323.0" mnemonicParsing="false" onAction="#ajouter" style="-fx-background-color: #FFFFC7;" text="Ajouter" textFill="#8c3333" />
+      <Label layoutX="257.0" layoutY="48.0" text="Patient" />
+   </children>
+</AnchorPane>

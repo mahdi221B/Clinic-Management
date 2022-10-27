@@ -1,0 +1,19 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 25 oct. 2022, 00:00:13
+    Author     : acila
+*/
+
+.primary-color{
+    -fx-background-color : #383838;
+}
+.secondary-color{
+    -fx-background-color : #282828;
+}
+.round-border{
+    -fx-background-radius : 100;
+}

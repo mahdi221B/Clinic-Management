@@ -5,18 +5,39 @@
  */
 package testEx;
 
-import java.util.Date;
 import servicesEx.ServiceExamen;
-import entitesEx.Examen;
-
+import entitiesEx.Examen;
+import entitiesEx.Salle;
+import entitiesEx.SalleExamen;
+import servicesEx.ServiceSalle;
+import servicesEx.ServiceSalleExamen;
+import outilsEx.MaBD;
 /**
  *
  * @author acila
  */
 public class MainProgram {
   public static void main(String[] args){
+      
+      /*  Examen ex = new Examen(5,1,1,"ajrdui");
+        ServiceExamen se = new ServiceExamen();
+         SalleExamen se1 = new SalleExamen(5,1,1);
+        ServiceSalleExamen sse = new ServiceSalleExamen();
+      
+        sse.ajouter(se1);
+      /*se.ajouterExamen(ex);
+
+     Examen ex = new Examen(1,2,1,"ajrd");
       ServiceExamen se = new ServiceExamen();
-      Examen ex = new Examen(1,1,1,new Date(12/02/2022));
-     se.ajouterExamen(ex);
-  }   
-}
+      se.modifier(ex);
+}   
+      //se.ajouter(ex);
+    
+    /*se.supprimer(ex);
+    System.out.println(se.afficher());*/
+    //ServiceSalle ss = new ServiceSalle();
+    //Salle s = new Salle(34, 1, "ahzv");
+      //System.out.println(ss.getAll());
+    //ss.ajouter(s);
+         
+}}
