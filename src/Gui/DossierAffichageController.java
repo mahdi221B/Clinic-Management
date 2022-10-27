@@ -64,9 +64,9 @@ private ObservableList<DossierPatient> data ;
     @FXML
     private Label labelNBR;
     @FXML
-    private ImageView image;
-    @FXML
     private TextField url;
+    @FXML
+    private ImageView img;
     /**
      * Initializes the controller class.
      */
@@ -202,7 +202,7 @@ private ObservableList<DossierPatient> data ;
                 // image.getException().printStackTrace();
             } else {
                 System.out.println("Successfully loaded image from " + url);
-                image.setImage(image);
+                img.setImage(image);
             }
                
     }

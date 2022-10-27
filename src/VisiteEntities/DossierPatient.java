@@ -17,6 +17,7 @@ public class DossierPatient {
    private String  AllergieMedicaments , Medicaments;
    private String Consultations;
    private String detailsOperation ,maladies;
+    private String image;
 
     public DossierPatient() {
     }
@@ -42,6 +43,14 @@ public class DossierPatient {
         this.Consultations = Consultations;
         this.detailsOperation = detailsOperation;
         this.maladies = maladies;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
    
     

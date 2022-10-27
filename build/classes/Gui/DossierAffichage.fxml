@@ -49,6 +49,6 @@
       <Label fx:id="labelNBR" layoutX="14.0" layoutY="120.0" prefHeight="38.0" prefWidth="220.0" />
       <Button layoutX="89.0" layoutY="557.0" mnemonicParsing="false" onAction="#importerimg" text="importer image" />
       <TextField fx:id="url" layoutX="226.0" layoutY="557.0" />
-      <ImageView fx:id="image" fitHeight="115.0" fitWidth="187.0" layoutX="164.0" layoutY="593.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="img" fitHeight="115.0" fitWidth="187.0" layoutX="164.0" layoutY="593.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
