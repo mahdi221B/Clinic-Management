@@ -4,30 +4,46 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="784.0" prefWidth="1055.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Gui.ConsultationModifController">
+<AnchorPane id="AnchorPane" prefHeight="784.0" prefWidth="1055.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.ConsultationModifController">
    <children>
-      <TextArea fx:id="lexmodif" layoutX="489.0" layoutY="313.0" prefHeight="79.0" prefWidth="364.0" />
-      <TextArea fx:id="lmedicmodif" layoutX="489.0" layoutY="420.0" prefHeight="79.0" prefWidth="364.0" />
-      <TextArea fx:id="traicomodif" layoutX="489.0" layoutY="528.0" prefHeight="79.0" prefWidth="364.0" />
-      <TextField fx:id="nomedmodif" layoutX="497.0" layoutY="108.0" promptText="Dr" />
-      <TextField fx:id="datcomodif" layoutX="497.0" layoutY="169.0" promptText="dd/mm/yyyy" />
-      <TextField fx:id="nptcomodif" layoutX="497.0" layoutY="230.0" />
-      <Text layoutX="402.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Consultation">
+      <TextArea fx:id="lexmodif" layoutX="425.0" layoutY="283.0" prefHeight="79.0" prefWidth="364.0" />
+      <TextArea fx:id="lmedicmodif" layoutX="425.0" layoutY="393.0" prefHeight="79.0" prefWidth="364.0" />
+      <TextField fx:id="nomedmodif" layoutX="425.0" layoutY="108.0" promptText="Dr" />
+      <TextField fx:id="datcomodif" layoutX="425.0" layoutY="169.0" promptText="dd/mm/yyyy" />
+      <TextField fx:id="nptcomodif" layoutX="425.0" layoutY="230.0" />
+      <Text fill="LIGHTBLUE" layoutX="402.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Consultation">
          <font>
             <Font size="45.0" />
          </font>
+         <effect>
+            <Glow />
+         </effect>
       </Text>
-      <Label layoutX="201.0" layoutY="113.0" text="Nom medecin :" />
-      <Label layoutX="201.0" layoutY="174.0" text="Date consultaion :" />
-      <Label layoutX="201.0" layoutY="235.0" text="Nom patient :" />
-      <Label layoutX="201.0" layoutY="313.0" text="Liste examens  :" />
-      <Label layoutX="201.0" layoutY="420.0" text="Liste medicaments :" />
-      <Label layoutX="202.0" layoutY="518.0" text="Traitement :" />
-      <Button layoutX="489.0" layoutY="642.0" mnemonicParsing="false" onAction="#modifier_cons" text="Modifier" />
+      <Button layoutX="666.0" layoutY="642.0" mnemonicParsing="false" onAction="#modifier_cons" text="Modifier" textFill="DIMGRAY" />
+      <Button layoutX="767.0" layoutY="642.0" mnemonicParsing="false" onAction="#Exit" prefHeight="31.0" prefWidth="77.0" text="Exit" textFill="DIMGRAY" />
+      <Pane layoutY="1.0" prefHeight="784.0" prefWidth="321.0" style="-fx-background-color: #ADD8E6;">
+         <children>
+            <Label layoutX="190.0" layoutY="107.0" text="Nom medecin :" textFill="DIMGRAY" />
+            <Label layoutX="173.0" layoutY="165.0" text="Date consultaion :" textFill="DIMGRAY" />
+            <Label layoutX="201.0" layoutY="230.0" text="Nom patient :" textFill="DIMGRAY" />
+            <Label layoutX="188.0" layoutY="303.0" text="Liste examens  :" textFill="DIMGRAY" />
+            <Label layoutX="161.0" layoutY="402.0" text="Liste medicaments :" textFill="DIMGRAY" />
+            <Label layoutX="207.0" layoutY="513.0" text="Traitement :" textFill="DIMGRAY" />
+            <ImageView fitHeight="105.0" fitWidth="119.0" layoutX="14.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/921130.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <TextField fx:id="traicomodif" layoutX="425.0" layoutY="506.0" prefHeight="79.0" prefWidth="364.0" />
    </children>
 </AnchorPane>

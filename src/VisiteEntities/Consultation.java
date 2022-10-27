@@ -139,13 +139,7 @@ public class Consultation {
         return true;
     }
 
-   
-    
-    
-
-    
-    
-
+  
    
     
 

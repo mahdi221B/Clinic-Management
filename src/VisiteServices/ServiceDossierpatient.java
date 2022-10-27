@@ -68,9 +68,11 @@ try {
     @Override
     public void modifier(DossierPatient d) {
  try {
-            String requete = "update DossierPatient SET nom='"+d.getNomP()+"',maladies='"+d.getMaladies()+"',medicaments='"+d.getMedicaments()+"',allergie_medic='"+d.getAllergieMedicaments()+"',details_op='"+d.getDetailsOperation()+"'";
-            Statement st = cnx.createStatement();
+      String requete = "UPDATE DossierPatient SET `nom`=?,`maladies`=? ,`medicaments`=? ,`allergie_medic`=? , `details_op`=?  WHERE id_rdv=" + d.getIdP();
+        Statement st = cnx.createStatement();
             st.executeUpdate(requete);
+          
+            
             System.out.println("Dossier Modifiee avec succés");
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -103,16 +105,40 @@ try {
         }
         return listdoc ;  
     }
+     
+     
+     
+       public ArrayList<DossierPatient> afficheDossier(String nomP) {
+                 ArrayList<DossierPatient> dossiers = new ArrayList<>();
+         
+               try {
+                      String sql = " SELECT * from dossierpatient where nom ='"+nomP+"';";
+                ResultSet result ;
+                       Statement ste = cnx.createStatement();
+        result = ste.executeQuery(sql);
+     while(result.next()){
+            DossierPatient p2 = new DossierPatient();
+            p2.setIdP(result.getInt(1));
+            p2.setNomP(result.getString(2));
+            p2.setAllergieMedicaments(result.getString(3));
+            p2.setMedicaments(result.getString(4));
+            p2.setConsultations(result.getString(5));
+            p2.setDetailsOperation(result.getString(6));
+            p2.setMaladies(result.getString(7));
+        
+         dossiers.add(p2);
+         System.out.println("liste remplit ");
+     }
+        } catch (SQLException e) {
+                System.out.println("error is \n"+e);
+        }
+
+     return dossiers ;
     
     
+    }
     
-    
-    
-    
-    
-    
-    
-    
+  
     
     }
 

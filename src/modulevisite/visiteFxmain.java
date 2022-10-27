@@ -25,17 +25,16 @@ public class visiteFxmain extends Application {
     
     @Override
     public void start(Stage primaryStage) throws IOException {
-       FXMLLoader loader = new FXMLLoader(getClass().getResource("../Gui/RendezVousAffichage.fxml"));
+       FXMLLoader loader = new FXMLLoader(getClass().getResource("../Gui/acceuil.fxml"));
        Parent root =loader.load();
-       //Acteur
+      
        Scene scene = new Scene(root);
-       //stage
+      
        primaryStage.setScene(scene);
        primaryStage.setTitle("PIDV");
-       //rideau
+       
        primaryStage.show();
-       
-       
+     
        
     }
 

@@ -4,28 +4,40 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="761.0" prefWidth="973.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.RendezVousajoutController">
+<AnchorPane id="AnchorPane" prefHeight="559.0" prefWidth="943.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.RendezVousajoutController">
    <children>
-      <Label layoutX="124.0" layoutY="201.0" text="Date :" />
-      <Label layoutX="120.0" layoutY="264.0" text="Heure :" />
-      <Label layoutX="125.0" layoutY="143.0" text="Nom medecin :" />
-      <Label layoutX="118.0" layoutY="331.0" text="Nom patient :" />
-      <Label layoutX="121.0" layoutY="388.0" text="Cause :" />
-      <TextField fx:id="tfNomed" layoutX="441.0" layoutY="138.0" promptText="Dr" />
-      <TextField fx:id="tfDate" layoutX="441.0" layoutY="196.0" promptText="dd/mm/yyyy" />
-      <TextField fx:id="tfNompat" layoutX="441.0" layoutY="326.0" />
-      <TextArea fx:id="taCause" layoutX="441.0" layoutY="399.0" prefHeight="109.0" prefWidth="342.0" />
-      <TextField fx:id="tfHeure" layoutX="441.0" layoutY="259.0" promptText="hh:mm" />
-      <Button layoutX="441.0" layoutY="606.0" mnemonicParsing="false" onAction="#ajouterRDV" text="Ajouter" />
-      <Text layoutX="355.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rendez-vous">
+      <TextField fx:id="tfNomed" layoutX="441.0" layoutY="132.0" promptText="Dr" />
+      <TextField fx:id="tfDate" layoutX="441.0" layoutY="181.0" promptText="dd/mm/yyyy" />
+      <TextField fx:id="tfNompat" layoutX="441.0" layoutY="299.0" />
+      <TextArea fx:id="taCause" layoutX="441.0" layoutY="363.0" prefHeight="109.0" prefWidth="342.0" />
+      <TextField fx:id="tfHeure" layoutX="441.0" layoutY="242.0" promptText="hh:mm" />
+      <Button layoutX="662.0" layoutY="496.0" mnemonicParsing="false" onAction="#ajouterRDV" text="Ajouter" textFill="DIMGRAY" />
+      <Text fill="#eececb" layoutX="355.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rendez-vous">
          <font>
             <Font size="46.0" />
          </font>
       </Text>
-      <Label fx:id="warn" layoutX="644.0" layoutY="635.0" prefHeight="51.0" prefWidth="249.0" />
+      <Label fx:id="warn" layoutX="644.0" layoutY="668.0" prefHeight="51.0" prefWidth="249.0" />
+      <Pane prefHeight="738.0" prefWidth="310.0" style="-fx-background-color: FFE4E1;">
+         <children>
+            <Label layoutX="197.0" layoutY="135.0" text="Nom medecin :" textFill="DIMGRAY" />
+            <Label layoutX="255.0" layoutY="186.0" text="Date :" textFill="DIMGRAY" />
+            <Label layoutX="245.0" layoutY="237.0" text="Heure :" textFill="DIMGRAY" />
+            <Label layoutX="200.0" layoutY="294.0" text="Nom patient :" textFill="DIMGRAY" />
+            <Label layoutX="245.0" layoutY="357.0" text="Cause :" textFill="DIMGRAY" />
+            <ImageView fitHeight="101.0" fitWidth="122.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/secretaire.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

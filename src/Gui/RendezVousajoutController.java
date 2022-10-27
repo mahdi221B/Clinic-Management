@@ -71,4 +71,6 @@ public class RendezVousajoutController implements Initializable {
             window.setScene(rcScene);
             window.show();
                }
-    }}
+    }
+
+}

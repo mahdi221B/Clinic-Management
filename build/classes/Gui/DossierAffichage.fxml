@@ -5,14 +5,16 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="667.0" prefWidth="862.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Gui.DossierAffichageController">
+<AnchorPane id="AnchorPane" prefHeight="717.0" prefWidth="963.0" style="-fx-background-color: #ADD8E6;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.DossierAffichageController">
    <children>
-      <TableView fx:id="tvDosp" layoutX="65.0" layoutY="103.0" prefHeight="362.0" prefWidth="763.0">
+      <TableView fx:id="tvDosp" layoutX="89.0" layoutY="167.0" prefHeight="362.0" prefWidth="763.0">
         <columns>
           <TableColumn fx:id="npa" prefWidth="121.0" text="Nom patient" />
           <TableColumn fx:id="mlda" prefWidth="91.0" text="Maladies" />
@@ -22,15 +24,31 @@
             <TableColumn fx:id="oprta" prefWidth="151.0" text="Details operations" />
         </columns>
       </TableView>
-      <Text layoutX="282.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dossier Patient">
-         <font>
-            <Font size="45.0" />
-         </font>
-      </Text>
-      <Button layoutX="134.0" layoutY="525.0" mnemonicParsing="false" onAction="#ajouter" text="Ajouter" />
-      <Button layoutX="392.0" layoutY="525.0" mnemonicParsing="false" onAction="#modifier" text="Modifier" />
-      <Button layoutX="616.0" layoutY="525.0" mnemonicParsing="false" onAction="#supprimer" text="Supprimer" />
-      <Label fx:id="warning" layoutX="555.0" layoutY="594.0" prefHeight="21.0" prefWidth="105.0" />
+      <Button layoutX="562.0" layoutY="572.0" mnemonicParsing="false" onAction="#ajouter" text="Ajouter" textFill="DIMGRAY" />
+      <Button layoutX="660.0" layoutY="572.0" mnemonicParsing="false" onAction="#modifier" text="Modifier" textFill="DIMGRAY" />
+      <Button layoutX="763.0" layoutY="572.0" mnemonicParsing="false" onAction="#supprimer" text="Supprimer" textFill="DIMGRAY" />
+      <Label fx:id="warning" layoutX="543.0" layoutY="627.0" prefHeight="21.0" prefWidth="105.0" />
       <TextField fx:id="tfTitre" layoutX="217.0" layoutY="38.0" prefHeight="31.0" prefWidth="18.0" />
+      <Pane layoutX="-7.0" layoutY="-5.0" prefHeight="115.0" prefWidth="973.0" style="-fx-background-color: WHITE;">
+         <children>
+            <Text fill="LIGHTBLUE" layoutX="338.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dossier Patient">
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="97.0" fitWidth="105.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/921130.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Button layoutX="763.0" layoutY="637.0" mnemonicParsing="false" onAction="#Exit" prefHeight="31.0" prefWidth="89.0" text="Exit" textFill="DIMGRAY" />
+      <TextField fx:id="tf1" layoutX="595.0" layoutY="127.0" prefHeight="31.0" prefWidth="252.0" promptText="Ecrivez nom patient" />
+      <Button layoutX="456.0" layoutY="127.0" mnemonicParsing="false" onAction="#chercherDos" text="chercher dossier" textFill="DIMGRAY" />
+      <Label fx:id="labelNBR" layoutX="14.0" layoutY="120.0" prefHeight="38.0" prefWidth="220.0" />
+      <Button layoutX="89.0" layoutY="557.0" mnemonicParsing="false" onAction="#importerimg" text="importer image" />
+      <TextField fx:id="url" layoutX="226.0" layoutY="557.0" />
+      <ImageView fx:id="image" fitHeight="115.0" fitWidth="187.0" layoutX="164.0" layoutY="593.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

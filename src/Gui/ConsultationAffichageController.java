@@ -17,12 +17,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
 /**
@@ -57,14 +60,16 @@ public class ConsultationAffichageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
          ServiceConsultation C = new  ServiceConsultation();
+         datca.setCellValueFactory(new PropertyValueFactory<Consultation, String>("dateConsultation"));
+         npatco.setCellValueFactory(new PropertyValueFactory<Consultation, String>("nomPatient"));
         nmco.setCellValueFactory(new PropertyValueFactory<Consultation, String>("nomMedecin"));
-        datca.setCellValueFactory(new PropertyValueFactory<Consultation, String>("dateConsultation"));
-        npatco.setCellValueFactory(new PropertyValueFactory<Consultation, String>("nomPatient"));
+         lmedicoa.setCellValueFactory(new PropertyValueFactory<Consultation, String>("listMedicament"));
         lexcoa.setCellValueFactory(new PropertyValueFactory<Consultation, String>("listExamens"));
-        lmedicoa.setCellValueFactory(new PropertyValueFactory<Consultation, String>("listMedicament"));
         traitcoa.setCellValueFactory(new PropertyValueFactory<Consultation, String>("traitement"));
-        ObservableList<Consultation> list = (ObservableList<Consultation>) C.afficher();
-        tvConsult.setItems(list);
+       
+        ObservableList<Consultation> li = (ObservableList<Consultation>) C.afficher();
+        tvConsult.setItems(li);
+        
     }    
 
     @FXML
@@ -101,11 +106,30 @@ public class ConsultationAffichageController implements Initializable {
     }
 
     @FXML
-    private void supprimerC(ActionEvent event) {
+    private void supprimerC(ActionEvent event) throws IOException {
      Consultation R = tvConsult.getSelectionModel().getSelectedItem();
     ServiceConsultation s = new  ServiceConsultation();
     s.supprimer(new Consultation(R.getIdCon()));
     JOptionPane.showMessageDialog(null,"Consultation supprimé");
+    
+    Parent root = FXMLLoader.load(getClass().getResource("../gui/ConsultationAffichage.fxml")) ;
+    	Scene rcScene= new Scene(root);
+        
+    	Stage window= (Stage)((Node)event.getSource()) .getScene().getWindow();
+    	window.setScene(rcScene);
+    	window.show();
+    
+    }
+    
+
+    @FXML
+    private void Exit(ActionEvent event) throws IOException {
+         Parent root = FXMLLoader.load(getClass().getResource("../gui/acceuil.fxml")) ;
+    	Scene rcScene= new Scene(root);
+    	
+    	Stage window= (Stage)((Node)event.getSource()) .getScene().getWindow();
+    	window.setScene(rcScene);
+    	window.show();
     }
     
 }

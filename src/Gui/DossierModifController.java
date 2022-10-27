@@ -9,12 +9,18 @@ import VisiteEntities.Consultation;
 import VisiteEntities.DossierPatient;
 import VisiteServices.ServiceConsultation;
 import VisiteServices.ServiceDossierpatient;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
 /**
@@ -59,6 +65,16 @@ private int ID;
          ServiceDossierpatient C = new ServiceDossierpatient();
         C.modifier(new DossierPatient(nomPatMdf.getText(), medicmodif.getText(), consmodif.getText(), allergmodif.getText(), maldmodif.getText(), opertmdf.getText()));
         JOptionPane.showMessageDialog(null,"DossierPatient modifié");
+    }
+
+    @FXML
+    private void Exit(ActionEvent event) throws IOException {
+         Parent root = FXMLLoader.load(getClass().getResource("../gui/DossierAffichage.fxml")) ;
+    	Scene rcScene= new Scene(root);
+    	
+    	Stage window= (Stage)((Node)event.getSource()) .getScene().getWindow();
+    	window.setScene(rcScene);
+    	window.show();
     }
     
     }

@@ -12,11 +12,19 @@ import VisiteServices.ServiceRendezvous;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
 /**
@@ -31,7 +39,7 @@ public class ConsultationModifController implements Initializable {
     @FXML
     private TextArea lmedicmodif;
     @FXML
-    private TextArea traicomodif;
+    private TextField traicomodif;
     @FXML
     private TextField nomedmodif;
     @FXML
@@ -44,7 +52,7 @@ private int ID;
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+      
     }    
 
      public void init(Consultation r) {
@@ -52,7 +60,7 @@ private int ID;
         lexmodif.setText(r.getListExamens());
         lmedicmodif.setText(r.getListMedicament());
         traicomodif.setText(r.getTraitement());
-        nomedmodif.setText(r.getNomPatient());
+        nomedmodif.setText(r.getNomMedecin());
         datcomodif.setText(r.getDateConsultation());
         nptcomodif.setText(r.getNomPatient());
     }  
@@ -60,8 +68,20 @@ private int ID;
     @FXML
     private void modifier_cons(ActionEvent event) throws IOException{
          ServiceConsultation C = new ServiceConsultation();
-        C.modifier(new Consultation(lexmodif.getText(), lmedicmodif.getText(), traicomodif.getText(), nomedmodif.getText(), datcomodif.getText(), nptcomodif.getText()));
+        C.modifier(new Consultation( datcomodif.getText(),nptcomodif.getText(), nomedmodif.getText(), lmedicmodif.getText() ,lexmodif.getText(), traicomodif.getText()));
         JOptionPane.showMessageDialog(null,"Consultation modifié");
     }
+
+    @FXML
+    private void Exit(ActionEvent event) throws IOException {
+         Parent root = FXMLLoader.load(getClass().getResource("../gui/ConsultationAffichage.fxml")) ;
+    	Scene rcScene= new Scene(root);
+    	
+    	Stage window= (Stage)((Node)event.getSource()) .getScene().getWindow();
+    	window.setScene(rcScene);
+    	window.show();
+    }
+
+
     
 }

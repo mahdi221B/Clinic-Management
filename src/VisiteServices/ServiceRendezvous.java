@@ -15,9 +15,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import static javax.management.remote.JMXConnectorFactory.connect;
@@ -26,7 +28,9 @@ import static javax.management.remote.JMXConnectorFactory.connect;
  *
  * @author USER
  */
+
 public class ServiceRendezvous implements  IService<RendezVous>{
+private Statement ste;
 Connection cnx;
 
     public ServiceRendezvous() {
@@ -66,7 +70,7 @@ try {
     public void modifier(RendezVous r) {
         
          try {
-            String req="update rendez_vous SET nomPatient='"+r.getNomPatient()+"',heure_rdv='"+r.getHeure()+"',nom_medecin='"+r.getNomMedecinRv()+"',cause_rdv='"+r.getCause()+"',date_rdv='"+r.getDateRendezVous()+"'" ;
+            String req="UPDATE rendez_vous SET nomPatient='"+r.getNomPatient()+"',heure_rdv='"+r.getHeure()+"',nom_medecin='"+r.getNomMedecinRv()+"',cause_rdv='"+r.getCause()+"',date_rdv='"+r.getDateRendezVous()+"' where id_rdv='"+r.getIdRv()+"' "; 
             Statement st = cnx.createStatement();
             st.executeUpdate(req);
             System.out.println("rendez_vous Modifier avec succés");
@@ -75,18 +79,7 @@ try {
         }
   
     }
-
-  
    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     @Override
      public ObservableList<RendezVous> afficher() {
@@ -112,29 +105,63 @@ try {
         return listRDV ;  
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+public void nbPationsTotal(RendezVous r) {
+try {
+            PreparedStatement ste = cnx.prepareStatement("update rendez_vous set id_rdv=id_rdv+1 WHERE id_rdv=" + r.getIdRv());
+
+            ste.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(RendezVous.class.getName()).log(Level.SEVERE, null, ex);
+        }
    
+           
+
+}
+ 
+    
+      /*public List<RendezVous> TrierParDateRDV() throws SQLException {
+       List<RendezVous> list = new ArrayList<>();
+        ResultSet res = ste.executeQuery("select * from rendezvous ORDER BY date_rdv DESC");
+        RendezVous com = null;
+        while (res.next()) {
+            com = new RendezVous(res.getInt(1),res.getString(2), res.getString(3),res.getString(4),res.getString(5),res.getString(6));
+            list.add(com);
+            System.out.println(list);
+        }
+        return list;*/
+        
+    
+ public List<RendezVous> triParCause(){
+        return afficher().stream().sorted(Comparator.comparing(RendezVous::getCause)).collect(Collectors.toList());
+    }
+ 
+    public List<RendezVous> triParNom(){
+         List<RendezVous>myList = new ArrayList<>();
+        try {
+            
+            String requet2="SELECT * FROM post order by titre";
+            Statement st = cnx.prepareStatement(requet2);              
+            ResultSet rs = st.executeQuery(requet2);
+            while(rs.next()){
+                RendezVous P = new RendezVous();
+                P.setIdRv(rs.getInt(1));
+                P.setNomPatient(rs.getString("nomPatient"));
+                P.setHeure(rs.getString("heure_rdv"));
+                P.setNomMedecinRv(rs.getString("nom_medecin"));
+                P.setCause(rs.getString("cause_rdv"));
+                P.setDateRendezVous(rs.getString("date_rdv"));
+                myList.add(P);
+            }
+               
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    
+        return myList;
+  
     }
 
    
-    
+}
 

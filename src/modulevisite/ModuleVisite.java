@@ -15,6 +15,7 @@ import VisiteEntities.RendezVous;
 import VisiteUtils.DBconnexion;
 import java.util.Date;
 import VisiteInterfaces.IService;
+import java.sql.SQLException;
 
 /**
  *
@@ -25,7 +26,7 @@ public class ModuleVisite {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         // TODO code application logic here
          System.out.println(DBconnexion.getInstance().getCnx());
          Consultation con =new Consultation("rihab","rihab","list","list","lis");
@@ -41,11 +42,12 @@ public class ModuleVisite {
          
         // Consultation conmof =new Consultation(18,"r","r","r","r","r");
     // sc.modifier(con);
-     Consultation c =new Consultation(6);
+     Consultation c =new Consultation(19);
     
      sc.supprimer(c);
+
      //sc.modifier(c);
-        System.out.println(sc.afficher());
+       
     }
     
     
