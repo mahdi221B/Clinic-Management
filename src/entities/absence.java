@@ -5,6 +5,8 @@
  */
 package entities;
 
+import java.sql.Date;
+
 /**
  *
  * @author ce pc

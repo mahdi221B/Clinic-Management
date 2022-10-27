@@ -46,9 +46,16 @@ public class NewFXMain extends Application {
      /* Parent root = FXMLLoader.load(getClass().getResource("/gui/PageuserFXML.fxml"));
         Scene scene = new Scene(root);*/
         
+     
+     
                 Parent root = FXMLLoader.load(getClass().getResource("/gui/AccueilFXML.fxml"));
-        Scene scene = new Scene(root);
+               Scene scene = new Scene(root);
         
+               // Parent root = FXMLLoader.load(getClass().getResource("/gui/LoginFXML.fxml"));
+               // Scene scene = new Scene(root);
+                
+                
+                
        // primaryStage.setTitle("Ajouter Absence!");
          primaryStage.setTitle(" Administrateur!");
         primaryStage.setScene(scene);

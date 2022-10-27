@@ -9,12 +9,15 @@ import entities.user;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 import services.userservice;
@@ -39,7 +42,7 @@ public class ModifieruserFXMLController implements Initializable {
     @FXML
     private TextField mu_motpass;
     @FXML
-    private TextField mu_role;
+    private ComboBox mu_role;
     @FXML
     private TextField mu_adress;
     @FXML
@@ -59,6 +62,8 @@ public class ModifieruserFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         us = new userservice();
+        ObservableList<String> list = FXCollections.observableArrayList("medecin","infirmier","admin","agent_de stock","secretaire");
+        mu_role.setItems(list);
         
         
         // TODO
@@ -76,8 +81,13 @@ public class ModifieruserFXMLController implements Initializable {
         mu_cin.setText(Integer.toString(u.getCIN()));
         mu_motpass.setText(u.getMot_passe());
         
-        mu_role.setText(u.getRole());
+       // mu_role.sett.(u.getRole());
+             
         mu_adress.setText(u.getAdresse());
+     
+        
+        
+        
         
         
     }  
@@ -107,10 +117,10 @@ public class ModifieruserFXMLController implements Initializable {
         else if(mu_cin.getText().isEmpty()) {
             System.out.println("cin vide !!");
         JOptionPane.showMessageDialog(null,"cin vide !!");}
-        else if(mu_motpass.getText().isEmpty()) {System.out.println("mot de passe vide !!");
+        else if(mu_motpass.getText().isEmpty() || mu_motpass.getText().length()< 4 ) {System.out.println("mot de passe vide !!");
         JOptionPane.showMessageDialog(null,"mot de passe vide !!");}
-        else if(mu_role.getText().isEmpty()) {System.out.println("role vide !!");
-        JOptionPane.showMessageDialog(null,"role vide !!");}
+       /* else if(mu_role.getText().isEmpty()) {System.out.println("role vide !!");
+        JOptionPane.showMessageDialog(null,"role vide !!");}*/
         else if (mu_adress.getText().isEmpty()) {System.out.println("adresse vide !!");
         JOptionPane.showMessageDialog(null,"adresse vide !!");
                 }
@@ -123,7 +133,7 @@ public class ModifieruserFXMLController implements Initializable {
         
         
         
-        us.modifier(new user(ID,mu_nom.getText(),mu_prenom.getText(),mu_sexe.getText(),Integer.parseInt(mu_numtel.getText()),Integer.parseInt(mu_cin.getText()),mu_motpass.getText(),mu_role.getText(),mu_adress.getText()));
+        us.modifier(new user(ID,mu_nom.getText(),mu_prenom.getText(),mu_sexe.getText(),Integer.parseInt(mu_numtel.getText()),Integer.parseInt(mu_cin.getText()),mu_motpass.getText(),mu_role.getSelectionModel().getSelectedItem().toString(),mu_adress.getText()));
         
          JOptionPane.showMessageDialog(null,"user modifiée");
         }
@@ -136,6 +146,11 @@ public class ModifieruserFXMLController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/PageuserFXML.fxml"));
             Parent root =loader.load();
             mu_adress.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void select(ActionEvent event) {
+        String s = mu_role.getSelectionModel().getSelectedItem().toString();
     }
 
     

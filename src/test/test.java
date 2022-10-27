@@ -7,6 +7,7 @@ package test;
 
 import entities.absence;
 import entities.user;
+import outils.MyDB;
 import services.absenceservice;
 import services.userservice;
 
@@ -21,17 +22,17 @@ public class test {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-      // MyDB instance = MyDB.getInstance();
+       MyDB instance = MyDB.getInstance();
         
  /********************************************************************************************************/
       //////////////////////////////////////ajouter user/////////////////////////////////////////////////  
-          userservice us = new userservice();                              
-         us.ajouter(new user("ll","ll","ll",2,06,"nnn","gg","mm"));
+        //  userservice us = new userservice();                              
+        // us.ajouter(new user("ll","ll","ll",2,06,"nnn","gg","mm"));
      //////////////////////////////////////////////////////////////////////////////////////////////    
         
      //////////////////////////////ajouter ab////////////////////////////////////////////////
-         absenceservice ab = new absenceservice();                               
-       //  ab.ajouter(new absence(6,"nmn","gbbbbkk","eeeeeeem","pppmf","ppppjjm"));
+      //   absenceservice ab = new absenceservice();                               
+     //    ab.ajouter(new absence(6,"nmn","gbbbbkk","2020-10-10","pppmf","ppppjjm"));
      //////////////////////////////////////////////////////////////////////////////////////////         
  /************************************************************************************************************/     
       
@@ -48,7 +49,7 @@ public class test {
              //  us.modifier(u); //test modif
    /**********************************************************************************************/
    /***********************************modif ab*************************************************/
-             //   absence a =new absence(1,"8","ad","sm","5f","77jm","oi");
+            //    absence a =new absence(1,"8","ad","hh","5f","77jm","oi");
              //    ab.modifier(a);
    /*********************************************************************************************/          
              

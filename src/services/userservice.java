@@ -34,6 +34,9 @@ public class userservice  {
         cnx=MyDB.getInstance().getConnection();
     }
     
+     
+    
+    
     
   /*public void ajouteruser(user u){
   
@@ -160,7 +163,53 @@ public class userservice  {
            return users;
             
     }
+    public user getByMail(String mail) {
+         
+   /* public List<user> afficher() {
+         List<user> users ;
+        users = new ArrayList<>();*/
 
+         try {
+             String  req = "SELECT * FROM user where adresse="+mail;
+             PreparedStatement st = cnx.prepareStatement(req);
+             ResultSet rs =st.executeQuery();
+             while(rs.next()){
+             int id_user=rs.getInt("id_user");
+             String nom=rs.getString("nom");
+             String prenom=rs.getString("prenom");
+             String sexe=rs.getString("sexe");
+             int num_tel=rs.getInt("num_tel");
+             int CIN=rs.getInt("CIN");
+             String mot_passe=rs.getString("mot_passe");
+             String role =rs.getString("role");
+             String adresse =rs.getString("adresse");
+             return new user(id_user,nom,prenom,sexe,num_tel,CIN,mot_passe,role,adresse);
+             
+                      }
+             
+         } catch (SQLException ex) {
+             Logger.getLogger(userservice.class.getName()).log(Level.SEVERE, null, ex);
+         }
+           
+           return null;
+            
+    }
+
+    public String getMdp(String aS){
+        String Titre = "";
+        try {
+            String req="SELECT mot_passe FROM `user` WHERE adresse = '"+aS+"'" ;
+            Statement st = cnx.createStatement(); 
+            ResultSet rs = st.executeQuery(req) ;
+            
+            while(rs.next()) {
+                 Titre=rs.getString("mot_passe");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return Titre;  
+    }
    
 } 
  

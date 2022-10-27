@@ -10,7 +10,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- *
+ *pi2022
  * @author ce pc
  */
 public class MyDB {

@@ -17,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 import services.absenceservice;
@@ -35,7 +36,7 @@ public class ModifierabsenceFXMLController implements Initializable {
     @FXML
     private TextField md_prenomab;
     @FXML
-    private TextField md_dateab;
+    private DatePicker md_dateab;
     @FXML
     private TextField md_dureab;
     @FXML
@@ -69,7 +70,7 @@ public class ModifierabsenceFXMLController implements Initializable {
         md_iduserab.setText(E.getId_user());
         md_nomab.setText(E.getNom());
         md_prenomab.setText(E.getPrenom());
-        md_dateab.setText(E.getDate_absence());
+       // md_dateab.setText(E.getDate_absence());
         md_dureab.setText(E.getDuré_absence());
         md_justtifab.setText(E.getJustification());
         
@@ -94,7 +95,7 @@ public class ModifierabsenceFXMLController implements Initializable {
         }
         else if(md_prenomab.getText().isEmpty()) {System.out.println("prenom vide !!");
         JOptionPane.showMessageDialog(null,"prenom vide !!");}
-        else if(md_dateab.getText().isEmpty()) {System.out.println("date vide !!");
+        else if(md_dateab.getValue().toString().isEmpty()) {System.out.println("date vide !!");
         JOptionPane.showMessageDialog(null,"date vide !!");}
         else if(md_dureab.getText().isEmpty()) {System.out.println("dure vide !!");
         JOptionPane.showMessageDialog(null,"dure vide !!");}
@@ -105,7 +106,7 @@ public class ModifierabsenceFXMLController implements Initializable {
        
      
      
-     as.modifier(new absence(ID,md_iduserab.getText(),md_nomab.getText(),md_prenomab.getText(),md_dateab.getText(),md_dureab.getText(),md_justtifab.getText()));
+     as.modifier(new absence(ID,md_iduserab.getText(),md_nomab.getText(),md_prenomab.getText(),md_dateab.getValue().toString(),md_dureab.getText(),md_justtifab.getText()));
       JOptionPane.showMessageDialog(null,"absence modifiée");
       
         }

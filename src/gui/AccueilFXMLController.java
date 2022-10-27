@@ -28,6 +28,8 @@ public class AccueilFXMLController implements Initializable {
     private Button id_gestion_user;
     @FXML
     private Button id_gestion_absence;
+    @FXML
+    private Button quit;
 
     /**
      * Initializes the controller class.
@@ -60,6 +62,16 @@ public class AccueilFXMLController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AccueilFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void quit(ActionEvent event) throws IOException {
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/LoginFXML.fxml"));
+            Parent root =loader.load();
+            id_gestion_user.getScene().setRoot(root);
+        
+        
     }
     
 }

@@ -8,6 +8,9 @@ package gui;
 import entities.absence;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
+import java.time.LocalDate;
+import static java.time.temporal.TemporalQueries.localDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,6 +20,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 //import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
@@ -36,7 +40,7 @@ public class AjouterFXMLController implements Initializable {
     @FXML
     private TextField tf_dureab;
     @FXML
-    private TextField tf_dateab;
+    private DatePicker tf_dateab;
     @FXML
     private TextField tf_prenomab;
     @FXML
@@ -59,7 +63,7 @@ public class AjouterFXMLController implements Initializable {
 
     @FXML  
     private void ajouter_absence(ActionEvent event) {
-        if(tf_iduserab.getText().isEmpty() && tf_iduserab.getText().length() <4 ) {
+        if(tf_iduserab.getText().isEmpty() || tf_iduserab.getText().length()> 4 ) {
             System.out.println("id user vide !!");
             JOptionPane.showMessageDialog(null,"id user vide !!");
         }else if(tf_nomab.getText().isEmpty()) {
@@ -68,7 +72,7 @@ public class AjouterFXMLController implements Initializable {
         }
         else if(tf_prenomab.getText().isEmpty()) {System.out.println("prenom vide !!");
         JOptionPane.showMessageDialog(null,"prenom vide !!");}
-        else if(tf_dateab.getText().isEmpty()) {System.out.println("date vide !!");
+        else if(tf_dateab.getValue().toString().isEmpty()) {System.out.println("date vide !!");
         JOptionPane.showMessageDialog(null,"date vide !!");}
         else if(tf_dureab.getText().isEmpty()) {System.out.println("dure vide !!");
         JOptionPane.showMessageDialog(null,"dure vide !!");}
@@ -80,7 +84,15 @@ public class AjouterFXMLController implements Initializable {
         a.setId_user(tf_iduserab.getText());
          a.setNom(tf_nomab.getText());
           a.setPrenom(tf_prenomab.getText());
-           a.setDate_absence(tf_dateab.getText());
+          
+       //   LocalDate ld = tf_dateab.getValue();
+          
+          
+          
+          
+            a.setDate_absence(tf_dateab.getValue().toString());
+          
+          
             a.setDuré_absence(tf_dureab.getText());
              a.setJustification(tf_justtifab.getText());
             as.ajouter(a);

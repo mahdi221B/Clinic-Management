@@ -5,23 +5,23 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="491.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PageuserFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PageuserFXMLController">
    <children>
-      <TableView fx:id="treevuser" layoutX="21.0" layoutY="20.0" prefHeight="328.0" prefWidth="671.0">
+      <TableView fx:id="treevuser" layoutX="39.0" layoutY="107.0" prefHeight="363.0" prefWidth="922.0" stylesheets="@../outils/cssPI.css">
         <columns>
-          <TableColumn fx:id="tu_nom" prefWidth="75.0" text="nom" />
-          <TableColumn fx:id="tu_prenom" prefWidth="75.0" text="prenom" />
-            <TableColumn fx:id="tu_sexe" prefWidth="75.0" text="sexe" />
-            <TableColumn fx:id="tu_numtel" prefWidth="75.0" text="num_tel" />
-            <TableColumn fx:id="tu_cin" prefWidth="75.0" text="CIN" />
-            <TableColumn fx:id="tu_motpass" prefWidth="95.0" text="mot_passe" />
-            <TableColumn fx:id="tu_role" prefWidth="55.0" text="role" />
-            <TableColumn fx:id="tu_adrs" prefWidth="75.0" text="adresse" />
+          <TableColumn fx:id="tu_nom" prefWidth="84.0" text="nom" />
+          <TableColumn fx:id="tu_prenom" minWidth="2.0" prefWidth="96.0" text="prenom" />
+            <TableColumn fx:id="tu_sexe" prefWidth="62.0" text="sexe" />
+            <TableColumn fx:id="tu_numtel" prefWidth="134.0" text="num_tel" />
+            <TableColumn fx:id="tu_cin" prefWidth="106.0" text="CIN" />
+            <TableColumn fx:id="tu_motpass" prefWidth="143.0" text="mot_passe" />
+            <TableColumn fx:id="tu_role" prefWidth="103.0" text="role" />
+            <TableColumn fx:id="tu_adrs" minWidth="4.0" prefWidth="180.0" text="adresse" />
         </columns>
       </TableView>
-      <Button fx:id="id_ajoutuser" layoutX="105.0" layoutY="385.0" mnemonicParsing="false" onAction="#pass_ajouter_user" prefHeight="31.0" prefWidth="89.0" text="Ajouter" />
-      <Button fx:id="id_suppuser" layoutX="402.0" layoutY="385.0" mnemonicParsing="false" onAction="#supprimer_user" text="Supprimer" />
-      <Button fx:id="id_modifuser" layoutX="258.0" layoutY="385.0" mnemonicParsing="false" onAction="#modifier_user" prefHeight="31.0" prefWidth="89.0" text="Modifier" />
-      <Button fx:id="exit_acu" layoutX="532.0" layoutY="385.0" mnemonicParsing="false" onAction="#exit_acu" prefHeight="31.0" prefWidth="89.0" text="Exit" />
+      <Button fx:id="id_ajoutuser" layoutX="131.0" layoutY="531.0" mnemonicParsing="false" onAction="#pass_ajouter_user" prefHeight="75.0" prefWidth="135.0" styleClass="btn" stylesheets="@../outils/cssPI.css" text="Ajouter" />
+      <Button fx:id="id_suppuser" layoutX="500.0" layoutY="531.0" mnemonicParsing="false" onAction="#supprimer_user" prefHeight="75.0" prefWidth="135.0" styleClass="btn" stylesheets="@../outils/cssPI.css" text="Supprimer" wrapText="true" />
+      <Button fx:id="id_modifuser" layoutX="319.0" layoutY="531.0" mnemonicParsing="false" onAction="#modifier_user" prefHeight="75.0" prefWidth="135.0" styleClass="btn" stylesheets="@../outils/cssPI.css" text="Modifier" wrapText="true" />
+      <Button fx:id="exit_acu" layoutX="707.0" layoutY="531.0" mnemonicParsing="false" onAction="#exit_acu" prefHeight="75.0" prefWidth="135.0" styleClass="btn" stylesheets="@../outils/cssPI.css" text="Exit" wrapText="true" />
    </children>
 </AnchorPane>
