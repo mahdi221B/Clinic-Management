@@ -4,7 +4,7 @@
  */
 package Interfaces;
 
-import entites.commande;
+import entities.commande;
 import java.util.List;
 
 /**

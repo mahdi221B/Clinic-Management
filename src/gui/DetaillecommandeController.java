@@ -4,8 +4,10 @@
  */
 package gui;
 
-import entites.articles;
-import entites.commande;
+import entities.articles;
+import entities.commande;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
@@ -28,6 +30,7 @@ import services.commande_services;
 import java.io.InputStream ;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
+//import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  * FXML Controller class
@@ -82,8 +85,12 @@ public class DetaillecommandeController implements Initializable {
 
     @FXML
     private void Supprimercommande(ActionEvent event) throws IOException {
-        commande c  = detaillecommande.getSelectionModel().getSelectedItem();
-        commande_services cs = new commande_services();
+        
+        
+                commande c  = detaillecommande.getSelectionModel().getSelectedItem();
+
+                          
+             commande_services cs = new commande_services();
     cs.Supprimercommande(new commande (c.getId_commande() ));
        JOptionPane.showMessageDialog(null,"articels supprime");
        
@@ -99,30 +106,12 @@ public class DetaillecommandeController implements Initializable {
     
     
     /////////////////////////////
-    /*
-    InputStreamResource file = new InputStreamResource(liste des attributs );
-        return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION,"attachment; filename=".concat(nameSheet).concat(".csv"))
-                .contentType(MediaType.parseMediaType("text/plain"))
-                 .body(file);
-    ////////////////////////////*/
-/*
-    @FXML
-    private void export(ActionEvent event) {
-        InputStreamResource  file = new InputStreamResource(RelationService.(status, date_ajout,date_cloture,motif_cloture,QteC));
-        return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION,"attachment; filename=".concat(nameSheet).concat(".csv"))
-                .contentType(MediaType.parseMediaType("text/plain"))
-                .body(file);
-    }
-    */
-
+    
 
 
     @FXML
     private void export(ActionEvent event) throws SQLException, IOException {
     
     commande_services cs = new commande_services();
-              cs.toexcel();
-    }
+   }
     }

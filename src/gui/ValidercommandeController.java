@@ -4,7 +4,7 @@
  */
 package gui;
 
-import entites.commande;
+import entities.commande;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
@@ -19,6 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import services.commande_services;
@@ -42,6 +43,8 @@ public class ValidercommandeController implements Initializable {
     private TableColumn<commande, String> motif_cloture;
     @FXML
     private TableColumn<commande, Integer> QteC;
+    @FXML
+    private TextField motif;
 
     /**
      * Initializes the controller class.
@@ -65,7 +68,8 @@ public class ValidercommandeController implements Initializable {
         
  commande c   = detaillecommande.getSelectionModel().getSelectedItem();
         commande_services cs  = new commande_services();
-    cs.validecoamande(new commande(c.getId_commande()));        
+    cs.validecoamande(new commande(c.getId_commande()),motif.getText());        
+ //cs.sendSmsvalide();
  
         
     }
@@ -75,13 +79,15 @@ public class ValidercommandeController implements Initializable {
     private void refuser(ActionEvent event) throws IOException {
          commande c   = detaillecommande.getSelectionModel().getSelectedItem();
         commande_services cs  = new commande_services();
-    cs.refusercommande(new commande(c.getId_commande()));
- ;
+    cs.refusercommande(new commande(c.getId_commande()),motif.getText());
+    //cs.sendSmsrefuse();
+ 
     }
 
+  
     @FXML
-    private void exit(ActionEvent event) throws IOException {
-               Parent root = FXMLLoader.load(getClass().getResource("../gui/detaillecommande.fxml")) ;
+    private void home(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("../gui/detaillecommande.fxml")) ;
      Scene rcScene= new Scene(root);
     	
   	Stage window= (Stage)((Node)event.getSource()).getScene().getWindow();

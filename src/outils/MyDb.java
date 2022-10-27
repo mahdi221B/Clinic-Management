@@ -13,7 +13,7 @@ import java.sql.Connection;
  * @author miled
  */
 public class MyDb {
-         String url="jdbc:mysql://localhost/pidev";
+         String url="jdbc:mysql://localhost/pi2022";
     String user="root";
     String  password="";
     Connection cnx;

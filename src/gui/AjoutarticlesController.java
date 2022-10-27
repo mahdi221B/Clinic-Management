@@ -5,7 +5,7 @@
 package gui;
 
 import static com.sun.media.jfxmediaimpl.MediaUtils.warning;
-import entites.articles;
+import entities.articles;
 import java.io.IOException;
 
 import java.net.URL;
@@ -28,8 +28,8 @@ import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import javax.swing.JOptionPane;
 import services.articels_services;
-import entites.typearticles;
-import entites.destination;
+import entities.typearticles;
+import entities.destination;
 
 /**
  * FXML Controller class
@@ -76,9 +76,9 @@ public class AjoutarticlesController implements Initializable {
 
                @FXML
     private void ajoutearticles(ActionEvent event) {
-            //if(nom.getText().isEmpty() || Qte.getText().isEmpty() || description.getText().isEmpty()|| aquidestine.getText().isEmpty() )
-   // {warning.setText("Remplissez tous les champs");
-   // } else {
+            if(nom.getText().isEmpty() || Qte.getText().isEmpty() || description.getText().isEmpty() )
+    {warning.setText("Remplissez tous les champs");
+    } else {
            articels_services as = new articels_services();
            as.Ajoutrarticle(new articles(nom.getText(), Integer.parseInt(Qte.getText()) , description.getText() , cboxtype.getValue().toString() , cboxdestine.getValue().toString()  )) ;
         //System.out.println((type_article.getSelectionModel().getSelectedItem()).getClass() );
@@ -90,7 +90,7 @@ public class AjoutarticlesController implements Initializable {
   	Stage window= (Stage)((Node)event.getSource()).getScene().getWindow();
 	window.setScene(rcScene);
 	window.show();*/
-    }
+    }}
 
     @FXML
     private void exit(ActionEvent event) throws IOException {

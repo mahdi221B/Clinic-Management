@@ -7,13 +7,16 @@
             <file>file:/C:/Users/miled/OneDrive/Bureau/gestionstock/src/services/commande_services.java</file>
             <file>file:/C:/Users/miled/OneDrive/Bureau/gestionstock/src/gui/DetaillearticlesController.java</file>
             <file>file:/C:/Users/miled/OneDrive/Bureau/gestionstock/src/services/lignedecommande_services.java</file>
+            <file>file:/C:/Users/miled/OneDrive/Bureau/gestionstock/src/gui/Ajoutcommande2Controller.java</file>
             <file>file:/C:/Users/miled/OneDrive/Bureau/gestionstock/src/entites/commande.java</file>
             <file>file:/C:/Users/miled/OneDrive/Bureau/gestionstock/src/entites/articles.java</file>
             <file>file:/C:/Users/miled/OneDrive/Bureau/gestionstock/src/gui/detaillecommande.fxml</file>
             <file>file:/C:/Users/miled/OneDrive/Bureau/gestionstock/src/gui/validercommande.fxml</file>
+            <file>file:/C:/Users/miled/OneDrive/Bureau/gestionstock/src/gui/ajoutarticles.fxml</file>
             <file>file:/C:/Users/miled/OneDrive/Bureau/gestionstock/src/test/test.java</file>
             <file>file:/C:/Users/miled/OneDrive/Bureau/gestionstock/src/gui/ModifierarticlesController.java</file>
             <file>file:/C:/Users/miled/OneDrive/Bureau/gestionstock/src/gui/ValidercommandeController.java</file>
+            <file>file:/C:/Users/miled/OneDrive/Bureau/gestionstock/src/entites/status.java</file>
             <file>file:/C:/Users/miled/OneDrive/Bureau/gestionstock/src/gui/AjoutarticlesController.java</file>
             <file>file:/C:/Users/miled/OneDrive/Bureau/gestionstock/src/gui/RetirerarticlesController.java</file>
             <file>file:/C:/Users/miled/OneDrive/Bureau/gestionstock/src/services/articels_services.java</file>
@@ -21,6 +24,7 @@
             <file>file:/C:/Users/miled/OneDrive/Bureau/gestionstock/src/gui/detaillearticles.fxml</file>
             <file>file:/C:/Users/miled/OneDrive/Bureau/gestionstock/src/gui/AjoutcommandeController.java</file>
             <file>file:/C:/Users/miled/OneDrive/Bureau/gestionstock/src/test/MainProg.java</file>
+            <file>file:/C:/Users/miled/OneDrive/Bureau/gestionstock/src/outils/newCascadeStyleSheet.css</file>
         </group>
     </open-files>
 </project-private>

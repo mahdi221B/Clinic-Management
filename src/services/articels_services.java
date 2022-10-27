@@ -5,8 +5,8 @@
 package services;
 
 import Interfaces.articleinterface;
-import entites.articles;
-import entites.commande;
+import entities.articles;
+import entities.commande;
 import java.io.ByteArrayInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -53,13 +53,13 @@ public class articels_services implements articleinterface {
         ResultSet rs = st1.executeQuery();
         while (rs.next()) {
             int id_articles = rs.getInt("id_articles");
-            String nom = rs.getString("nom");
+            String nom_articles = rs.getString("nom_articles");
             int Qte = rs.getInt("Qte");
             String description = rs.getString("description");
             String type = (rs.getString("type"));
             String a_qui_destiné = rs.getString("a_qui_destiné");
         }
-        if (rs.getString("nom").toUpperCase() == (ar.getNom().toUpperCase())) {
+        if (rs.getString("nom_articles").toUpperCase() == (ar.getNom_articles().toUpperCase())) {
             System.out.println("same name");
             //req update qte
 
@@ -71,7 +71,7 @@ public class articels_services implements articleinterface {
     public void Ajoutrarticle(articles a) {
 
         try {
-            String req = "INSERT INTO articles(nom,Qte,description,type,a_qui_destiné) VALUES ('" + a.getNom() + "','" + a.getQte() + "','" + a.getDescription() + "','" + a.getType() + "','" + a.getA_qui_destiné() + "')";
+            String req = "INSERT INTO articles(nom_articles,Qte,description,type,a_qui_destiné) VALUES ('" + a.getNom_articles() + "','" + a.getQte() + "','" + a.getDescription() + "','" + a.getType() + "','" + a.getA_qui_destiné() + "')";
             Statement st = cnx.createStatement();
             st.executeUpdate(req);
             System.out.println("article ajouter avec succés");
@@ -117,7 +117,7 @@ public class articels_services implements articleinterface {
     public void updatearticles(articles a) {
         try {
             //('"+a.getNom()+"','"+a.getQte()+"','"+a.getDescription()+"','"+a.getType()+"','"+a.getA_qui_destiné()+"')"
-            String req = "update articles  SET nom='" + a.getNom() + "',Qte='" + a.getQte() + "',description='" + a.getDescription() + "',type='" + a.getType() + "',a_qui_destiné='" + a.getA_qui_destiné() + "' where id_articles='" + a.getId_articles() + "'";
+            String req = "update articles  SET nom_articles='" + a.getNom_articles() + "',Qte='" + a.getQte() + "',description='" + a.getDescription() + "',type='" + a.getType() + "',a_qui_destiné='" + a.getA_qui_destiné() + "' where id_articles='" + a.getId_articles() + "'";
             Statement st = cnx.createStatement();
             st.executeUpdate(req);
             System.out.println("article ajouter avec succés");
@@ -152,13 +152,13 @@ public class articels_services implements articleinterface {
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 int id_articles = rs.getInt("id_articles");
-                String nom = rs.getString("nom");
+                String nom_articles = rs.getString("nom_articles");
                 int Qte = rs.getInt("Qte");
                 String description = rs.getString("description");
                 String type = (rs.getString("type"));
                 String a_qui_destiné = rs.getString("a_qui_destiné");
 
-                articleslist.add(new articles(id_articles, nom, Qte, description, type, a_qui_destiné));
+                articleslist.add(new articles(id_articles, nom_articles, Qte, description, type, a_qui_destiné));
             }
         } catch (SQLException ex) {
             Logger.getLogger(articels_services.class.getName()).log(Level.SEVERE, null, ex);
@@ -171,8 +171,7 @@ public class articels_services implements articleinterface {
 /*
     
     
-    */
-     public void retirerarticles(int id_articles, int qte  ) {
+    */ public void retirerarticles(int id_articles, int qte  ) {
          //System.out.println(id_articles);
          //System.out.println(qte);
          try {
@@ -216,12 +215,12 @@ public List<articles> recherche(String s) throws SQLException {
         ResultSet rs = stm.executeQuery(req);
         while (rs.next()) {
             int id_articles = rs.getInt("id_articles");
-                String nom = rs.getString("nom");
+                String nom_articles = rs.getString("nom_articles");
                 int Qte = rs.getInt("Qte");
                 String description = rs.getString("description");
                 String type = (rs.getString("type"));
                 String a_qui_destiné = rs.getString("a_qui_destiné");
-            articles a = new articles(id_articles, nom, Qte, description, type, a_qui_destiné);
+            articles a = new articles(id_articles, nom_articles, Qte, description, type, a_qui_destiné);
 
             retour.add(a);
             

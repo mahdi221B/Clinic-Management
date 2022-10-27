@@ -4,7 +4,7 @@
  */
 package gui;
 
-import entites.commande;
+import entities.commande;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
@@ -33,6 +34,8 @@ public class Ajoutcommande2Controller implements Initializable {
     private TextField QteC;
     @FXML
     private DatePicker date_ajout;
+    @FXML
+    private Label warning;
 
     /**
      * Initializes the controller class.
@@ -44,7 +47,10 @@ public class Ajoutcommande2Controller implements Initializable {
 
     @FXML
     private void Ajoutercommande(ActionEvent event) throws IOException {
-    
+     if( QteC.getText().isEmpty()  )
+    {warning.setText("veuiller remplire  la quantite  ");
+    } else {
+        
     commande_services cs = new commande_services();
       cs.Ajoutercommande2(new commande(Integer.parseInt(QteC.getText())  ,date_ajout.getValue().toString() ));
         JOptionPane.showMessageDialog(null,"commande ajoutée");
@@ -56,6 +62,6 @@ public class Ajoutcommande2Controller implements Initializable {
 	window.setScene(rcScene);
 	window.show();
     }  
-    }
+    }}
     
 

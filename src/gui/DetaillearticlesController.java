@@ -4,7 +4,7 @@
  */
 package gui;
 
-import entites.articles;
+import entities.articles;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -57,7 +57,6 @@ public class DetaillearticlesController implements Initializable {
     private TableColumn<articles,String> a_qui_destiné;
     @FXML
     private TableView<articles> tarticles;
-    @FXML
     private TextField recherche;
 
     /**
@@ -96,8 +95,8 @@ public class DetaillearticlesController implements Initializable {
     @FXML
     private void updatearticles(ActionEvent articles) throws IOException {
      
-        
-            articles a = tarticles.getSelectionModel().getSelectedItem();//Avoir les donnes de formateur sélectionnée
+           
+            articles a = tarticles.getSelectionModel().getSelectedItem();
             //Change the scene
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/modifierarticles.fxml"));
             Parent root =loader.load();
@@ -113,7 +112,6 @@ public class DetaillearticlesController implements Initializable {
             
         
     }
-      @FXML
     private List recherche(ActionEvent event) throws SQLException {
                 articels_services as = new articels_services();
                 List<articles>  data =   as.recherche(recherche.getText());
@@ -152,8 +150,9 @@ public class DetaillearticlesController implements Initializable {
 
     @FXML
     private void Ajoutercommande(ActionEvent event) {
-    
+     articles a = tarticles.getSelectionModel().getSelectedItem() ;
      try {
+         
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/ajoutcommande2.fxml"));
             Parent root =loader.load();
             //Accessing the destined controller
@@ -165,21 +164,25 @@ public class DetaillearticlesController implements Initializable {
             Logger.getLogger(DetaillearticlesController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
 
     @FXML
-    private void retirerarticles(ActionEvent event) throws IOException {
-       articles a = tarticles.getSelectionModel().getSelectedItem() ;//Avoir les donnes de formateur sélectionnée
-            //Change the scene
+    private void retirerarticle(ActionEvent event) throws IOException {
+               articles a = tarticles.getSelectionModel().getSelectedItem() ;//Avoir les donnes de formateur sélectionnée
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../gui/retirerarticles.fxml"));
             Parent root =loader.load();
-            //Accessing the destined controller
-            //get the new scene
-            RetirerarticlesController dpc = loader.getController();
+                  RetirerarticlesController dpc = loader.getController();
+                 tarticles.getScene().setRoot(root);
+                             dpc.init(a);
 
-            tarticles.getScene().setRoot(root);
-            //Initializer les donnees de formateur
-            dpc.init(a);
+
+
+
     }
+
+  
+
+ 
 
   
     }

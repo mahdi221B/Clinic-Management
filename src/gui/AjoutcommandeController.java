@@ -4,7 +4,7 @@
  */
 package gui;
 
-import entites.commande;
+import entities.commande;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

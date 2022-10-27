@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package entites;
+package entities;
 
 
 import java.util.Objects;
@@ -14,9 +14,16 @@ import java.util.Objects;
 public class articles {
     private int id_articles;
 
+    public articles(int id_articles, String nom, int Qte, String description) {
+        this.id_articles = id_articles;
+        this.nom_articles = nom;
+        this.Qte = Qte;
+        this.description = description;
+    }
+
    
 
-    private String nom;
+    private String nom_articles;
     private int  Qte;
     private String description ;
     //private type_articles  type
@@ -40,12 +47,12 @@ public class articles {
         this.id_articles = id_articles;
     }
 
-    public String getNom() {
-        return nom;
+    public String getNom_articles() {
+        return nom_articles;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setNom_articles(String nom_articles) {
+        this.nom_articles = nom_articles;
     }
 
     public int getQte() {
@@ -81,7 +88,7 @@ public class articles {
     }
 
     public articles(String nom, int Qte, String description, String type, String a_qui_destiné) {
-        this.nom = nom;
+        this.nom_articles = nom;
         this.Qte = Qte;
         this.description = description;
         this.type = type;
@@ -93,7 +100,7 @@ public class articles {
 
     public articles(int id_articles, String nom, int Qte, String description, String type, String a_qui_destiné) {
         this.id_articles = id_articles;
-        this.nom = nom;
+        this.nom_articles = nom;
         this.Qte = Qte;
         this.description = description;
         this.type = type;
@@ -103,7 +110,7 @@ public class articles {
     public int hashCode() {
         int hash = 7;
         hash = 31 * hash + this.id_articles;
-        hash = 31 * hash + Objects.hashCode(this.nom);
+        hash = 31 * hash + Objects.hashCode(this.nom_articles);
         hash = 31 * hash + this.Qte;
         hash = 31 * hash + Objects.hashCode(this.description);
         hash = 31 * hash + Objects.hashCode(this.type);
@@ -129,7 +136,7 @@ public class articles {
         if (this.Qte != other.Qte) {
             return false;
         }
-        if (!Objects.equals(this.nom, other.nom)) {
+        if (!Objects.equals(this.nom_articles, other.nom_articles)) {
             return false;
         }
         if (!Objects.equals(this.description, other.description)) {

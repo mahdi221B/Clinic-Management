@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package entites;
+package entities;
 
 import java.sql.Date;
 
@@ -20,7 +20,7 @@ public class commande {
     private String date_ajout;
     private String date_cloture ;
     private String motif_cloture;
-    private int id_articles;
+    //private int id_articles;
 
     public commande(String status, String date_ajout, String date_cloture, String motif_cloture, int QteC, String articles) {
         this.status = status;

@@ -4,12 +4,12 @@
  */
 package services;
 
-import entites.commande;
+import entities.commande;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import outils.MyDb;
-import entites.ligne_de_commande;
+import entities.ligne_de_commande;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;

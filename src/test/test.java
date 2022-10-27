@@ -4,13 +4,13 @@
  */
 package test;
 
-import entites.commande;
+import entities.commande;
 //import java.util.Date;
 import outils.MyDb;
 import services.commande_services;
 import services.articels_services;
-import entites.articles;
-import entites.ligne_de_commande;
+import entities.articles;
+import entities.ligne_de_commande;
 import services.lignedecommande_services;
 import java.sql.Date;
 import java.sql.SQLException;

@@ -4,7 +4,7 @@
  */
 package Interfaces;
 
-import entites.articles;
+import entities.articles;
 import java.util.List;
 
 /**

@@ -8,27 +8,27 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="446.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutarticlesController">
+<AnchorPane id="AnchorPane" prefHeight="446.0" prefWidth="746.0" stylesheets="@../outils/newCascadeStyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutarticlesController">
    <children>
-      <TextField fx:id="nom" layoutX="73.0" layoutY="64.0" />
-      <TextField fx:id="Qte" layoutX="73.0" layoutY="106.0" />
-      <TextField fx:id="description" layoutX="73.0" layoutY="148.0" />
+      <TextField fx:id="nom" layoutX="73.0" layoutY="64.0" styleClass="UpperMenu" stylesheets="@../outils/newCascadeStyleSheet.css" />
+      <TextField fx:id="Qte" layoutX="73.0" layoutY="106.0" styleClass="UpperMenu" stylesheets="@../outils/newCascadeStyleSheet.css" />
+      <TextField fx:id="description" layoutX="73.0" layoutY="148.0" styleClass="UpperMenu" stylesheets="@../outils/newCascadeStyleSheet.css" />
       <ComboBox fx:id="cboxtype" layoutX="73.0" layoutY="208.0" prefWidth="150.0" />
       <ComboBox fx:id="cboxdestine" layoutX="85.0" layoutY="253.0" prefWidth="150.0" />
 
-      <Text layoutX="322.0" layoutY="29.0" stroke="#bf4c4c" strokeType="OUTSIDE" strokeWidth="0.0" text="Articles " textAlignment="CENTER">
+      <Text layoutX="315.0" layoutY="29.0" stroke="#bf4c4c" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajout Articles  " textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="27.0" />
          </font>
       </Text>
-      <Button layoutX="106.0" layoutY="320.0" mnemonicParsing="false" onAction="#ajoutearticles" text="ajouter" />
-      <Label layoutX="31.0" layoutY="68.0" text="nom" />
-      <Label layoutX="31.0" layoutY="110.0" text="qte" />
-      <Label layoutX="31.0" layoutY="152.0" text="desc" />
-      <Label layoutX="31.0" layoutY="212.0" text="type" />
-      <Label layoutX="31.0" layoutY="257.0" text="destine" />
+      <Button layoutX="106.0" layoutY="320.0" mnemonicParsing="false" onAction="#ajoutearticles" styleClass="btn" text="ajouter" />
+      <Label layoutX="31.0" layoutY="68.0" styleClass="UpperMenu" stylesheets="@../outils/newCascadeStyleSheet.css" text="nom" />
+      <Label layoutX="31.0" layoutY="110.0" styleClass="UpperMenu" stylesheets="@../outils/newCascadeStyleSheet.css" text="qte" />
+      <Label layoutX="31.0" layoutY="152.0" styleClass="UpperMenu" stylesheets="@../outils/newCascadeStyleSheet.css" text="desc" />
+      <Label layoutX="31.0" layoutY="212.0" styleClass="UpperMenu" stylesheets="@../outils/newCascadeStyleSheet.css" text="type" />
+      <Label layoutX="31.0" layoutY="257.0" styleClass="UpperMenu" stylesheets="@../outils/newCascadeStyleSheet.css" text="destine" />
      
-      <Button layoutX="284.0" layoutY="320.0" mnemonicParsing="false" onAction="#exit" text="exit" />
-      <Label fx:id="warning" layoutX="46.0" layoutY="290.0" prefHeight="17.0" prefWidth="240.0" text="Label" />
+      <Button layoutX="284.0" layoutY="320.0" mnemonicParsing="false" onAction="#exit" styleClass="btn" text="exit" />
+      <Label fx:id="warning" layoutX="46.0" layoutY="290.0" prefHeight="17.0" prefWidth="240.0" styleClass="UpperMenu" stylesheets="@../outils/newCascadeStyleSheet.css" />
    </children>
 </AnchorPane>

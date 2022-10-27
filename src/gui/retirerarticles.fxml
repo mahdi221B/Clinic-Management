@@ -5,10 +5,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RetirerarticlesController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="477.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RetirerarticlesController">
    <children>
-      <Label layoutX="115.0" layoutY="99.0" text="quantitté a retiré" />
-      <TextField fx:id="Qte" layoutX="308.0" layoutY="95.0" />
-      <Button layoutX="282.0" layoutY="244.0" mnemonicParsing="false" onAction="#retirerarticels" text="retirer articels" />
+      <Label layoutX="79.0" layoutY="99.0" styleClass="Inputs" stylesheets="@../outils/newCascadeStyleSheet.css" text="quantitté a retiré" />
+      <TextField fx:id="Qte" layoutX="219.0" layoutY="95.0" styleClass="Inputs" stylesheets="@../outils/newCascadeStyleSheet.css" />
+      <Button layoutX="204.0" layoutY="242.0" mnemonicParsing="false" onAction="#retirerarticles" styleClass="btn" stylesheets="@../outils/newCascadeStyleSheet.css" text="retirer articels" />
+      <Label fx:id="warning" layoutX="235.0" layoutY="183.0" textFill="RED" />
    </children>
 </AnchorPane>
